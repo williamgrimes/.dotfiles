@@ -1,0 +1,25 @@
+"set smoothscroll
+set noautofocus
+set typelinkhints
+let searchlimit = 30
+let scrollstep = 100
+let searchengine startpage = "https://www.startpage.com/do/search?query="
+let searchengine wikipedia = "https://en.wikipedia.org/wiki/Special:Search/%s"
+let searchengine youtube = "https://www.youtube.com/results?search_query="
+let searchengine reddit = "https://www.reddit.com/search?q="
+let searchengine googlemaps = "https://www.google.com/maps?q="
+let searchengine stackoverflow = "https://stackoverflow.com/search?q="
+let searchalias g = "google"
+let searchalias d = "duckduckgo"
+let searchalias r = "reddit"
+let searchalias y = "youtube"
+let searchalias m = "googlemaps"
+let searchalias w = "wikipedia"
+let searchalias s = "stackoverflow"
+let defaultengine = "startpage"
+let blacklists = ["https://sherlockml.com/*","http://localhost:*","http://localhost:88*/*","localhost*","localhost:8889/tree","https://docs.google.com/*"]
+let qmark c = ["https://calendar.google.com/calendar/render?pli=1#main_7"]
+let qmark g = ["https://github.com/williamgrimes"]
+let qmark d = ["https://drive.google.com/drive/u/0/folders/0B7mwfQOvuSQKc0FLTVlNR1hXRlE"]
+let qmark t = ["https://trello.com/b/PLItJgWC/wef-oceans-challenge"]
+let qmark w = ["https://drive.google.com/drive/u/0/folders/0B7mwfQOvuSQKc0FLTVlNR1hXRlE","https://calendar.google.com/calendar/render?pli=1#main_7","https://trello.com/b/PLItJgWC/wef-oceans-challenge","https://github.com/DSSG2017/wef_oceans"]

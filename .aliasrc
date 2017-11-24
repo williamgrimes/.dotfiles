@@ -1,0 +1,39 @@
+#alias
+#alias rm='rm -i'
+#alias mv='mv -i' 
+#alias cp='cp -i' 
+#alias ln='ln -i'
+alias ll='ls -l'
+alias t='tmux -2'
+alias cs='cd;ls'
+alias apt-get='sudo apt-get'
+alias reboot='sudo reboot'
+alias update='sudo apt-get upgrade'
+alias cd..='cd ..' 
+alias ..='cd ..' 
+alias ...='cd ../../../' 
+alias ....='cd ../../../../' 
+alias .....='cd ../../../../' 
+alias .4='cd ../../../../' 
+alias .5='cd ../../../../..'
+alias h='history'
+alias j='jobs -l'
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+alias vi=vim 
+alias svi='sudo vi' 
+alias svim='sudo vi' 
+alias vis='vim "+set si"' 
+alias edit='vim'
+alias chrome='/opt/google/chrome/chrome'
+
+
+#DSSG ALIAS
+alias ssh_wef='ssh -i /home/williamgrimes/projects/dssg/wgrimes.pem wgrimes@wef-oceans.dssg.io'
+alias ssh_wef2='ssh -i /home/williamgrimes/projects/dssg/wgrimes.pem wgrimes@35.176.224.30'
+
+alias ssh_training='ssh -i /home/williamgrimes/projects/dssg/wgrimes.pem wgrimes@training.dssg.io'
+alias jupyter_connect='ssh -i /home/williamgrimes/projects/dssg/wgrimes.pem -NfL 8889:localhost:8889 wgrimes@wef-oceans.dssg.io'
+alias vimwef="vim scp://wef//mnt/data/wgrimes/"
