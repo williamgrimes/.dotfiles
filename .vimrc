@@ -2,6 +2,9 @@ set nocompatible
 set nu
 set clipboard=unnamed
 set hlsearch
+set paste
+set shortmess+=I
+set tabstop=4
 
 let mapleader = '\'
 
@@ -9,8 +12,44 @@ filetype off
 
 autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python %<CR>
 
+filetype plugin indent on
+
+""""""""""""""""""""""""""""""""""""""""""""
+" POWERLINE
+""""""""""""""""""""""""""""""""""""""""""""
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+set laststatus=2
+
+
+""""""""""""""""""""""""""""""""""""""""""""
+" SPLIT NAVIGATIONS
+""""""""""""""""""""""""""""""""""""""""""""
+set splitbelow
+set splitright
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+""""""""""""""""""""""""""""""""""""""""""""
+" FOLDING
+""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za 
+
+
 execute pathogen#infect() 
-" set the runtime path to include Vundle and initialize
+
+""""""""""""""""""""""""""""""""""""""""""""
+" START VUNDLE - ADD TO RTP
+""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -41,7 +80,7 @@ au BufNewFile,BufRead *.js, *.html, *.css
 
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 ""python with virtualenv support
@@ -103,34 +142,8 @@ map <Leader>b :SlimuxREPLSendBuffer<CR>
 map <Leader>a :SlimuxShellLast<CR>
 map <Leader>k :SlimuxSendKeysLast<CR>
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 
-filetype plugin indent on    " required
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
-set  rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-set laststatus=2
-set t_Co=256
-    
-set laststatus=2
-
-
-set splitbelow
-set splitright
-
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Enable folding with the spacebar
-nnoremap <space> za
+call vundle#end()
+""""""""""""""""""""""""""""""""""""""""""""
+" END VUNDLE
+""""""""""""""""""""""""""""""""""""""""""""
