@@ -1,3 +1,5 @@
+~/.vimrc
+
 set nocompatible
 set nu
 set clipboard=unnamed
