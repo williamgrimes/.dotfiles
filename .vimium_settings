@@ -20,6 +20,6 @@ let defaultengine = "startpage"
 let blacklists = ["https://sherlockml.com/*","http://localhost:*","http://localhost:88*/*","localhost*","localhost:8889/tree","https://docs.google.com/*"]
 let qmark c = ["https://calendar.google.com/calendar/render?pli=1#main_7"]
 let qmark g = ["https://github.com/williamgrimes"]
-let qmark d = ["https://drive.google.com/drive/u/0/folders/0B7mwfQOvuSQKc0FLTVlNR1hXRlE"]
+let qmark d = ["https://drive.google.com/drive/my-drive"]
 let qmark t = ["https://trello.com/b/PLItJgWC/wef-oceans-challenge"]
-let qmark w = ["https://drive.google.com/drive/u/0/folders/0B7mwfQOvuSQKc0FLTVlNR1hXRlE","https://calendar.google.com/calendar/render?pli=1#main_7","https://trello.com/b/PLItJgWC/wef-oceans-challenge","https://github.com/DSSG2017/wef_oceans"]
+let qmark w = ["https://drive.google.com/drive/my-drive","https://calendar.google.com/calendar/render?pli=1#main_7","https://trello.com/b/PLItJgWC/wef-oceans-challenge","https://github.com/DSSG2017/wef_oceans"]
