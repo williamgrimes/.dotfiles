@@ -1,4 +1,4 @@
-~/.vimrc
+"~/.vimrc
 
 set nocompatible
 set nu
