@@ -59,11 +59,12 @@ function lb() {
 ###############################
 # DSSG ALIASES
 ###############################
-alias ssh_wef='ssh -i /home/williamgrimes/projects/dssg/wgrimes.pem wgrimes@wef-oceans.dssg.io'
-alias ssh_wef2='ssh -i /home/williamgrimes/projects/dssg/wgrimes.pem wgrimes@35.176.224.30'
+alias ssh_training='ssh -i ~/dssg/wgrimes.pem wgrimes@training.dssg.io'
+alias jupyter_connect='ssh -i ~/dssg/wgrimes.pem -NfL 8889:localhost:8889 wgrimes@wef-oceans.dssg.io'
 
-alias ssh_training='ssh -i /home/williamgrimes/projects/dssg/wgrimes.pem wgrimes@training.dssg.io'
-alias jupyter_connect='ssh -i /home/williamgrimes/projects/dssg/wgrimes.pem -NfL 8889:localhost:8889 wgrimes@wef-oceans.dssg.io'
+alias ssh_wef='ssh -i ~/dssg/wgrimes.pem wgrimes@wef-oceans.dssg.io'
+alias ssh_wef2='ssh -i ~/dssg/wgrimes.pem wgrimes@35.176.224.30'
+
 alias vimwef="vim scp://wef//mnt/data/wgrimes/"
 
 ###############################
