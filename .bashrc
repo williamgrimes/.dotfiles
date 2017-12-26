@@ -6,23 +6,25 @@
 source ~/.aliasrc
 
 ###############################
-# ANACONDA ON PATH
-###############################
-export PATH="/home/williamgrimes/anaconda3/bin:$PATH"
-
-###############################
 # PYTHON STARTUP WITH READLINE
 ###############################
 export PYTHONSTARTUP=/home/williamgrimes/.pythonstartup
 
 ###############################
-# TMUX POWERLINE
+# PATH SETTINGS
 ###############################
-# ~/.local/lib/python3.5/site-packages/powerline/config_files/themes/tmux/default.json  # edit right segments
+export PATH="/home/williamgrimes/anaconda3/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+###############################
+# POWERLINE
+###############################
 # ~/.local/lib/python3.5/site-packages/powerline/config_files/themes/shell/default.json  # remove left user
 export TERM="screen-256color"
-if [ -f /home/williamgrimes/.local/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh ]; then
-source /home/williamgrimes/.local/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
+if [ -f ~/.local/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh ]; then
+source ~/.local/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
 ###############################
