@@ -19,14 +19,9 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""
 " POWERLINE
 """"""""""""""""""""""""""""""""""""""""""""
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set rtp+=$HOME/.local/lib/python3.5/site-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
-set laststatus=2
-
 
 """"""""""""""""""""""""""""""""""""""""""""
 " SPLIT NAVIGATIONS
@@ -45,7 +40,6 @@ nnoremap <C-H> <C-W><C-H>
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za 
-
 
 execute pathogen#infect() 
 
@@ -124,10 +118,6 @@ nmap <silent> <C-n> :NERDTreeToggle<CR>
 Plugin 'kien/ctrlp.vim'
 
 Plugin 'tpope/vim-fugitive'
-
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-let g:Powerline_symbols = 'fancy'
 
 Plugin 'csv.vim'
 hi CSVColumnEven term=bold ctermbg=6
