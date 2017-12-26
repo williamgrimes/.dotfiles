@@ -1,8 +1,7 @@
 # ~/.aliasrc
 
 ###############################
-# COLOUR LS OUTPUT
-###############################
+# COLOUR LS OUTPUT ###############################
 alias ls='ls --color=auto'
 
 ###############################
@@ -53,7 +52,20 @@ alias chrome='/opt/google/chrome/chrome'
 # LOGBOOK FUNCTION
 ###############################
 function lb() {
-    vim ~/logbook/$(date '+%Y-%m-%d').md
+	file=~/logbook/$(date '+%Y-%m-%d').md
+	if [ -e "$file" ]; then
+    	vim "$file"
+	else 
+    	echo "# $(date '+%Y-%m-%d')" > "$file"
+    	vim "$file"
+	fi 
+}
+
+###############################
+# MARKDOWN VIEWER
+###############################
+function mdv () {
+  pandoc $1 | lynx -stdin -vikeys
 }
 
 ###############################
@@ -68,12 +80,9 @@ alias ssh_wef2='ssh -i ~/dssg/wgrimes.pem wgrimes@35.176.224.30'
 alias vimwef="vim scp://wef//mnt/data/wgrimes/"
 
 ###############################
-# AWS ALIASES
+# FASTAI AWS ALIASES
 ###############################
-alias aws-get-p2='export instanceId=`aws ec2 describe-instances --filters "Name=instance-state-name,Values=stopped,Name=instance-type,Values=p2.xlarge" --query "Reservations[0].Instances[0].InstanceId"` && echo $instanceId'
-alias aws-get-t2='export instanceId=`aws ec2 describe-instances --filters "Name=instance-state-name,Values=stopped,Name=instance-type,Values=t2.xlarge" --query "Reservations[0].Instances[0].InstanceId"` && echo $instanceId'
-alias aws-start='aws ec2 start-instances --instance-ids $instanceId && aws ec2 wait instance-running --instance-ids $instanceId && export instanceIp=`aws ec2 describe-instances --filters "Name=instance-id,Values=$instanceId" --query "Reservations[0].Instances[0].PublicIpAddress"` && echo $instanceIp'
-alias aws-ip='export instanceIp=`aws ec2 describe-instances --filters "Name=instance-id,Values=$instanceId" --query "Reservations[0].Instances[0].PublicIpAddress"` && echo $instanceIp'
-alias aws-ssh='ssh -i ~/.ssh/aws-key-fast-ai.pem ubuntu@$instanceIp'
-alias aws-stop='aws ec2 stop-instances --instance-ids $instanceId'
-alias aws-state='aws ec2 describe-instances --instance-ids $instanceId --query "Reservations[0].Instances[0].State.Name"'
+#alias ssh_fastai='ssh -i ~/fastai/qiweih_gpu.pem ubuntu@ec2-18-194-233-206.eu-central-1.compute.amazonaws.com'
+alias ssh_fastai='ssh -i ~/fastai/qiweih_gpu.pem ubuntu@18.194.186.174'
+#alias fastai_jupyter='ssh -i ~/fastai/qiweih_gpu.pem -NfL 8888:localhost:8888 ubuntu@ec2-18-194-233-206.eu-central-1.compute.amazonaws.com'
+alias fastai_jupyter='ssh -i ~/fastai/qiweih_gpu.pem -NfL 8888:localhost:8888 ubuntu@18.194.186.174'
