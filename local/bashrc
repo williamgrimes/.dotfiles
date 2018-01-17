@@ -8,12 +8,12 @@ source ~/.aliasrc
 ###############################
 # PYTHON STARTUP WITH READLINE
 ###############################
-export PYTHONSTARTUP=/home/williamgrimes/.pythonstartup
+export PYTHONSTARTUP=~/.pythonstartup
 
 ###############################
 # PATH SETTINGS
 ###############################
-export PATH="/home/williamgrimes/anaconda3/bin:$PATH"
+export PATH="~/anaconda3/bin:$PATH"
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi

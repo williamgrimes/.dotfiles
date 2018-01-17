@@ -1,9 +1,9 @@
 " .vimium_settings
-"set smoothscroll
+set smoothscroll
 set noautofocus
 set typelinkhints
 let searchlimit = 30
-let scrollstep = 100
+let scrollstep = 25
 let searchengine ebay = "https://www.ebay.co.uk/sch/"
 let searchengine googlemaps = "https://www.google.com/maps?q="
 let searchengine reddit = "https://www.reddit.com/search?q="

@@ -1,0 +1,35 @@
+[user]
+	name = William Grimes
+	email = will-grimes@gmx.com
+	username = williamgrimes
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = auto
+
+[gc]
+  auto = 1
+
+[alias]
+  st = status
+  cm = commit -m
+  co = checkout
+  di = diff
+  dc = diff --cached
+  ds = diff --staged
+  aa = add --all
+  pom = push origin master
+  b = branch
+
+  unstage = reset HEAD            # un-add files from index (tracking)
+  uncommit = reset --soft HEAD^   # go back one commit, put changes into your working dir and index
+
+[format]
+  pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
+
+[merge]
+  tool = vimdiff
+  summary = true

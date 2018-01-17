@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='scp://fastai//home/ubuntu/'
+let g:netrw_dirhist_2='scp://fastai//home/ubuntu/wgrimes/'
+let g:netrw_dirhist_3='scp://fastai//home/ubuntu/'
+let g:netrw_dirhist_4='scp://fastai//home/ubuntu/wgrimes/'
+let g:netrw_dirhist_5='scp://fastai//home/ubuntu/'
+let g:netrw_dirhist_6='scp://fastai//home/ubuntu/.local/'
+let g:netrw_dirhist_7='scp://fastai//home/ubuntu/'
