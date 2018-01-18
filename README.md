@@ -9,7 +9,12 @@ A collection of dotfiles, settings, and configurations for local machine and whe
 * vim
 * vimium
 
-## Setup
-1. clone repo to `~/.dotfiles` folder:
-2. make local/remote script executable using `chmod +x /path/to/script.sh`
-3. run script to create symbolic links `bash /path/to/script.sh`
+## Setup local
+1. clone repo: `git clone https://github.com/williamgrimes/dotfiles.git`
+2. make script executable using `chmod +x ~/.dotfiles/symlink_setup_local.sh`
+3. run script to create symbolic links `bash ~/.dotfiles/symlink_setup_local.sh`
+
+## Setup remote
+1. clone repo: `git clone https://github.com/williamgrimes/dotfiles.git`
+2. make script executable using `chmod +x ~/.dotfiles/symlink_setup_remote.sh`
+3. run script to create symbolic links `bash ~/.dotfiles/symlink_setup_remote.sh`
