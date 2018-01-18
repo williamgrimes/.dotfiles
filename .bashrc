@@ -10,12 +10,12 @@ source ~/.bash_functions
 ###############################
 # PYTHON STARTUP WITH READLINE
 ###############################
-export PYTHONSTARTUP=~/.pythonstartup
+export PYTHONSTARTUP=$HOME/.pythonstartup
 
 ###############################
 # PATH SETTINGS
 ###############################
-export PATH="~/anaconda3/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
