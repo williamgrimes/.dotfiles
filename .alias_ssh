@@ -24,23 +24,3 @@ alias ssh_wef='ssh -i ~/dssg/wgrimes.pem wgrimes@wef-oceans.dssg.io'
 alias ssh_wef2='ssh -i ~/dssg/wgrimes.pem wgrimes@35.176.224.30'
 
 alias vimwef="vim scp://wef//mnt/data/wgrimes/"
-
-###############################
-# LOGBOOK FUNCTION
-###############################
-function lb() {
-	file=~/logbook/$(date '+%Y-%m-%d').md
-	if [ -e "$file" ]; then
-    	vim "$file"
-	else 
-    	echo "# $(date '+%Y-%m-%d')" > "$file"
-    	vim "$file"
-	fi 
-}
-
-###############################
-# MARKDOWN VIEWER
-###############################
-function mdv () {
-  pandoc $1 | lynx -stdin -vikeys
-}
