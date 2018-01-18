@@ -1,9 +1,11 @@
 # ~/.bashrc
 
 ###############################
-# SOURCE ALIASES
+# SOURCE ALIASES AND FUNCTIONS
 ###############################
 source ~/.aliasrc
+source ~/.alias_ssh
+source ~/.bash_functions
 
 ###############################
 # PYTHON STARTUP WITH READLINE

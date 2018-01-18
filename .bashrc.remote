@@ -141,3 +141,5 @@ NC='\[\033[0m\]'
 PS1="$yellow[$CYAN\t$yellow][$red\H$yellow][$GREEN\w$grey$yellow]$NC# "
 export PATH="/home/ubuntu/anaconda2/bin:$PATH"
 export PATH="/home/ubuntu/anaconda2/bin:$PATH"
+
+source ~/.aliasrc
