@@ -15,7 +15,7 @@ A collection of dotfiles, settings, and configurations for local machine and whe
 2. make script executable using `chmod +x ~/.dotfiles/symlink_setup_local.sh`
 3. run script to create symbolic links `bash ~/.dotfiles/symlink_setup_local.sh`
 
-## Remote
+### Remote
 1. clone repo: `git clone https://github.com/williamgrimes/dotfiles.git`
 2. make script executable using `chmod +x ~/.dotfiles/symlink_setup_remote.sh`
 3. run script to create symbolic links `bash ~/.dotfiles/symlink_setup_remote.sh`
