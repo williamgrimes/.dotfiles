@@ -1,5 +1,13 @@
-# Dotfiles and Settings
-This contains useful dotfiles for bash, aliases, tmux, and vim. As well as useful vimium settings for chrome.
+# Dotfiles and settings
+A collection of dotfiles, settings, and configurations for local machine and when setting up new remote servers. 
+
+* aliases
+* bash
+* gitconfig
+* python
+* tmux
+* vim
+* vimium
 
 ## Setup
 1. clone repo to `~/.dotfiles` folder:
