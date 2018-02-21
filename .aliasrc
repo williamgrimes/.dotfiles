@@ -1,6 +1,25 @@
 # ~/.aliasrc
 
 ###############################
+# PROXIES
+###############################
+export GIO_EXTRA_MODULES=/usr/lib/x86_64-linux-gnu/gio/modules/
+
+proxy_set() {
+    gsettings set org.gnome.system.proxy mode 'manual'
+    gsettings set org.gnome.system.proxy.http host 'proxy.fe.unl.pt'
+    gsettings set org.gnome.system.proxy.http port 9999
+    gsettings set org.gnome.system.proxy.https host 'proxy.fe.unl.pt'
+    gsettings set org.gnome.system.proxy.https port 9999
+    gsettings set org.gnome.system.proxy.ftp host 'proxy.fe.unl.pt'
+    gsettings set org.gnome.system.proxy.ftp port 9999
+}
+
+proxy_unset() {
+    gsettings set org.gnome.system.proxy mode 'none'
+}
+
+###############################
 # LIST
 ###############################
 alias ls='ls --color=auto'
