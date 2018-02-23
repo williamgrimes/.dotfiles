@@ -1,4 +1,4 @@
-#/.tmux.conf
+#/.tmux.conf.remote
 
 ############################
 # RENAME WINDOW
@@ -7,9 +7,9 @@ unbind ,
 bind-key r command-prompt "rename-window %%"
 
 ############################
-# RELOAD CONF
+# RELOAD CONF 
 ############################
-bind-key R source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
+bind-key R source-file ~/.tmux.conf.remote \; display-message "~/.tmux.conf.remote reloaded"
 
 ############################
 # TOGGLE MOUSE MODE ON OR OFF

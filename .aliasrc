@@ -20,6 +20,11 @@ proxy_unset() {
 }
 
 ###############################
+# TMUX SESSION TEMPLATES
+###############################
+alias tmux_gpu='bash ~/.dotfiles/.tmux/.session_gpu_monitor.sh'
+
+###############################
 # LIST
 ###############################
 alias ls='ls --color=auto'
