@@ -1,5 +1,5 @@
 #!/bin/sh 
-SESSION_NAME="gpu_monitor"
+SESSION_NAME="gpu"
 tmux new-session -s $SESSION_NAME -d htop
 tmux split-window -v glances
 tmux select-pane -t 1
