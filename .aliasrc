@@ -17,6 +17,9 @@ proxy_set() {
 
 proxy_unset() {
     gsettings set org.gnome.system.proxy mode 'none'
+	unset http_proxy
+	unset https_proxy
+	unset ftp_proxy
 }
 
 ###############################
