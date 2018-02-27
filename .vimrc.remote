@@ -1,0 +1,10 @@
+colorscheme desert
+set nocompatible
+set nu
+set clipboard=unnamed
+set hlsearch
+set paste
+set shortmess+=I
+set tabstop=4
+
+
