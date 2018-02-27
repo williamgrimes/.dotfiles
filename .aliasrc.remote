@@ -1,0 +1,63 @@
+# ~/.aliasrc
+
+###############################
+# TMUX SESSION TEMPLATES
+###############################
+alias tmux_u_net='bash ~/.dotfiles/.tmux/session_u_net.sh'
+alias tmux_mask_rcnn='bash ~/.dotfiles/.tmux/session_mask_rcnn.sh'
+
+###############################
+# LIST
+###############################
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias lll='ls -la'
+
+###############################
+# REMOVE
+###############################
+alias rm='rm -I'
+
+###############################
+# CHANGE DIRECTORY
+###############################
+alias cs='cd;ls'
+alias cd..='cd ..' 
+alias ..='cd ..' 
+alias ...='cd ../../../' 
+alias ....='cd ../../../../' 
+alias .....='cd ../../../../' 
+alias .4='cd ../../../../' 
+alias .5='cd ../../../../..'
+
+###############################
+# DATE AND TIME
+###############################
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+###############################
+# PACKAGE MANAGEMENT
+###############################
+alias apt-get='sudo apt-get'
+alias reboot='sudo reboot'
+alias update='sudo apt-get update'
+alias upgradee='sudo apt-get upgrade'
+
+###############################
+# VIM
+###############################
+alias vi=vim 
+alias svi='sudo vi' 
+alias svim='sudo vi' 
+alias vis='vim "+set si"' 
+alias edit='vim'
+
+###############################
+# MISC
+###############################
+alias t='tmux -2'
+alias h='history'
+alias j='jobs -l'
+alias path='echo -e ${PATH//:/\\n}'
