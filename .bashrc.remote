@@ -139,7 +139,22 @@ CYAN='\[\033[1;36m\]'
 NC='\[\033[0m\]'
 
 PS1="$yellow[$CYAN\t$yellow][$red\H$yellow][$GREEN\w$grey$yellow]$NC# "
-export PATH="/home/ubuntu/anaconda2/bin:$PATH"
-export PATH="/home/ubuntu/anaconda2/bin:$PATH"
+export PATH="/home/ubuntu/anaconda3/bin:$PATH"
 
 source ~/.aliasrc
+
+###############################
+# SOURCE PROJECT VARIABLES
+###############################
+source '/home/ubuntu/nuclei_segmentation/environment_variables'
+bash /home/ubuntu/.config/autostart/kaggle_config_wgrimes.sh
+
+if [[ "$TERM" =~ "screen".* ]]; then
+    session_name="$(tmux display-message -p "#S")"
+    if [[ "$session_name" =~ "u_net".* ]]; then
+        source activate u_net
+    fi
+    if [[ "$session_name" =~ "msk_rcnn".* ]]; then
+        source activate mask_rcnn
+    fi
+fi
