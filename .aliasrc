@@ -84,10 +84,10 @@ alias path='echo -e ${PATH//:/\\n}'
 team_pastel_id="i-03ae7601a12d2b702"
 team_pastel_pem="~/nuclei_segmentation/team_pastel.pem"
 
-alias aws-ip='export instanceIp=`aws ec2 describe-instances --filters "Name=instance-id,Values=$team_pastel_id" --query "Reservations[0].Instan    ces[0].PublicIpAddress"` && echo $instanceIp'
+alias aws-ip='export instanceIp=`aws ec2 describe-instances --filters "Name=instance-id,Values=$team_pastel_id" --query "Reservations[0].Instances[0].PublicIpAddress"` && echo $instanceIp'
 alias aws-tun='ssh -i $team_pastel_pem -NfL 8889:localhost:8889 ubuntu@$instanceIp'
 alias aws-tun-stop='lsof -ti:8889 | xargs kill -9'
 alias aws-state='aws ec2 describe-instances --instance-ids $team_pastel_id --query "Reservations[0].Instances[0].State.Name"'
-alias aws-start='aws ec2 start-instances --instance-ids $team_pastel_id && aws ec2 wait instance-running --instance-ids $team_pastel_id && expo    rt instanceIp=`aws ec2 describe-instances --filters "Name=instance-id,Values=$team_pastel_id" --query "Reservations[0].Instances[0].PublicIpAdd    ress"` && echo $instanceIp'
+alias aws-start='aws ec2 start-instances --instance-ids $team_pastel_id && aws ec2 wait instance-running --instance-ids $team_pastel_id && export instanceIp=`aws ec2 describe-instances --filters "Name=instance-id,Values=$team_pastel_id" --query "Reservations[0].Instances[0].PublicIpAddress"` && echo $instanceIp'
 alias aws-ssh='ssh -i $team_pastel_pem ubuntu@$instanceIp'
 alias aws-stop='aws ec2 stop-instances --instance-ids $team_pastel_id'
