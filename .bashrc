@@ -5,7 +5,6 @@
 ###############################
 source ~/.aliasrc
 source ~/.alias_ssh
-source ~/.bash_functions
 
 ###############################
 # PYTHON STARTUP WITH READLINE
@@ -39,3 +38,23 @@ export LC_ALL=en_US.UTF-8
 # CHECK WINDOWSIZE
 ###############################
 shopt -s checkwinsize
+
+###############################
+# LOGBOOK FUNCTION
+###############################
+function lb() {
+    file=~/logbook/$(date '+%Y-%m-%d').md
+    if [ -e "$file" ]; then
+        vim "$file"
+    else 
+        echo "# $(date '+%Y-%m-%d')" > "$file"
+        vim "$file"
+    fi 
+}
+
+###############################
+# MARKDOWN VIEWER
+###############################
+function mdv () {
+  pandoc $1 | lynx -stdin -vikeys
+}
