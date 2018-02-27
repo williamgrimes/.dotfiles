@@ -1,3 +1,6 @@
+[core]
+	editor = vim
+
 [user]
 	name = williamgrimes
 	email = will-grimes@gmx.com
