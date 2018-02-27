@@ -4,7 +4,6 @@
 # SOURCE ALIASES AND FUNCTIONS
 ###############################
 source ~/.aliasrc
-source ~/.alias_ssh
 
 ###############################
 # PYTHON STARTUP WITH READLINE
