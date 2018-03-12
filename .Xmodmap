@@ -1,3 +1,4 @@
+! add to profile `xmodmap ~/.xmodmap`
 keycode 133 = Mode_switch
 keysym h = h H Left Left
 keysym l = l L Right Right
