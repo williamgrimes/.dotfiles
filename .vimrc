@@ -1,12 +1,11 @@
 "~/.vimrc
 
 set nocompatible
-set nu
+set nowrap
 set clipboard=unnamed
 set hlsearch
 set paste
 set shortmess+=I
-set tabstop=4
 
 let mapleader = '\'
 
@@ -14,7 +13,13 @@ filetype off
 
 autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python %<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""
+" TABS
+""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 """"""""""""""""""""""""""""""""""""""""""""
 " POWERLINE

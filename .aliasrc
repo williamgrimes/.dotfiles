@@ -1,26 +1,16 @@
 # ~/.aliasrc
 
 ###############################
-# PROXIES
+# TOUCHPAD TIMEOUT
 ###############################
-export GIO_EXTRA_MODULES=/usr/lib/x86_64-linux-gnu/gio/modules/
+alias syn='syndaemon -i .5 -K -R -d'
 
-proxy_set() {
-    gsettings set org.gnome.system.proxy mode 'manual'
-    gsettings set org.gnome.system.proxy.http host 'proxy.fe.unl.pt'
-    gsettings set org.gnome.system.proxy.http port 9999
-    gsettings set org.gnome.system.proxy.https host 'proxy.fe.unl.pt'
-    gsettings set org.gnome.system.proxy.https port 9999
-    gsettings set org.gnome.system.proxy.ftp host 'proxy.fe.unl.pt'
-    gsettings set org.gnome.system.proxy.ftp port 9999
-}
-
-proxy_unset() {
-    gsettings set org.gnome.system.proxy mode 'none'
-	unset http_proxy
-	unset https_proxy
-	unset ftp_proxy
-}
+###############################
+# SPOTIFY TIMEOUT
+###############################
+alias play='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
+alias previous='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous'
+alias next='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next'
 
 ###############################
 # LIST
@@ -59,7 +49,7 @@ alias nowdate='date +"%d-%m-%Y"'
 alias apt-get='sudo apt-get'
 alias reboot='sudo reboot'
 alias update='sudo apt-get update'
-alias upgradee='sudo apt-get upgrade'
+alias upgrade='sudo apt-get upgrade'
 
 ###############################
 # VIM

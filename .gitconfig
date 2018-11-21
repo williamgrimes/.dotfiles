@@ -36,3 +36,8 @@
 [merge]
   tool = vimdiff
   summary = true
+[credential]
+	helper = cache --timeout=3600
+[gui]
+	fontui = -family \"urw gothic l\" -size 16 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"nimbus mono l\" -size 14 -weight normal -slant roman -underline 0 -overstrike 0

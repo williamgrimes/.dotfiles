@@ -1,6 +1,13 @@
 # ~/.bashrc
 
 ###############################
+# SYNDAEMON DISABLE TOUCHPAD
+###############################
+if [ -n "$(start-stop-daemon --stop --name syndaemon)" ]; then
+    exec /usr/bin/syndaemon -i .5 -K -R -d &
+fi
+
+###############################
 # SOURCE ALIASES AND FUNCTIONS
 ###############################
 source ~/.aliasrc
@@ -11,9 +18,9 @@ source ~/.aliasrc
 export PYTHONSTARTUP=$HOME/.pythonstartup
 
 ###############################
-# PATH SETTINGS
+# PYTHON PATH SETTINGS
 ###############################
-export PATH="$HOME/anaconda3/bin:$PATH"
+export PATH="/opt/miniconda3/bin:$PATH"
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi

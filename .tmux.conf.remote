@@ -62,3 +62,8 @@ set -g visual-activity on
 # RENUMBER WINDOWS
 ############################
 set -g renumber-windows on
+
+############################
+# TMUX LINES HISTORY
+############################
+set -g history-limit 5000
