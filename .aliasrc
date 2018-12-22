@@ -1,6 +1,11 @@
 # ~/.aliasrc
 
 ###############################
+# THEASAURUS
+###############################
+alias thrus='dict -d moby-thesaurus'
+
+###############################
 # SPOTIFY TIMEOUT
 ###############################
 alias play='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
@@ -23,13 +28,6 @@ alias rm='rm -I'
 # CHANGE DIRECTORY
 ###############################
 alias cs='cd;ls'
-alias cd..='cd ..' 
-alias ..='cd ..' 
-alias ...='cd ../../../' 
-alias ....='cd ../../../../' 
-alias .....='cd ../../../../' 
-alias .4='cd ../../../../' 
-alias .5='cd ../../../../..'
 
 ###############################
 # DATE AND TIME
@@ -56,9 +54,13 @@ alias vis='vim "+set si"'
 alias edit='vim'
 
 ###############################
+# VISIDATA
+###############################
+alias vdd='vd $1 --csv-delimiter="|"'
+
+###############################
 # MISC
 ###############################
 alias t='tmux -2'
 alias h='history'
 alias j='jobs -l'
-alias path='echo -e ${PATH//:/\\n}'

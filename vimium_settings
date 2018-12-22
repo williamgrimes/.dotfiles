@@ -3,7 +3,7 @@ set smoothscroll
 set noautofocus
 set typelinkhints
 let searchlimit = 30
-let scrollstep = 25
+let scrollstep = 50
 let searchengine ebay = "https://www.ebay.co.uk/sch/"
 let searchengine googlemaps = "https://www.google.com/maps?q="
 let searchengine reddit = "https://www.reddit.com/search?q="
@@ -19,9 +19,8 @@ let searchalias r = "reddit"
 let searchalias s = "stackoverflow"
 let searchalias w = "wikipedia"
 let searchalias y = "youtube"
-let defaultengine = "startpage"
-let blacklists = ["https://sherlockml.com/*","http://localhost:*","http://localhost:88*/*","localhost*","localhost:8889/tree","https://docs.google.com/*"]
-let qmark c = ["https://calendar.google.com/calendar/render?pli=1#main_7"]
+let defaultengine = "duckduckgo"
+let qmark c = ["https://calendar.google.com/calendar/r/day?pli=1"]
 let qmark g = ["https://github.com/williamgrimes"]
 let qmark d = ["https://drive.google.com/drive/my-drive"]
 let qmark t = ["https://trello.com/b/PLItJgWC/wef-oceans-challenge"]
