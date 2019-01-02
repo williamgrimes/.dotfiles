@@ -1,0 +1,11 @@
+#!/bin/sh 
+tmux new-session \; \
+  send-keys 'htop' C-m \; \
+  split-window -v -p 10 \; \
+  rename-window 'monitor' \; \
+  send-keys 'echo timer' C-m \; \
+  new-window 'ranger' \; \
+  rename-window 'ranger' \; \
+  send-keys 'ranger' C-m \; \
+  new-window 'fish'\; \
+
