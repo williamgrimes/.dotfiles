@@ -48,3 +48,16 @@ egrep "^export " ~/.bashrc | while read e
             set -xg $var $value
         end
 end
+
+function lb
+        set file ~/LogBook/(date '+%Y-%m-%d').md
+        if test -f $file;
+                vim $file
+		echo 'loaded logbook entry ' $file
+        else
+                echo '# '(date '+%Y-%m-%d') > $file
+		echo 'created logbook entry ' $file
+                vim $file
+        end
+end
+

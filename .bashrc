@@ -15,7 +15,7 @@ export LC_ALL=en_US.UTF-8
 # LOGBOOK FUNCTION
 ###############################
 function lb() {
-    file=~/logbook/$(date '+%Y-%m-%d').md
+    file=~/LogBook/$(date '+%Y-%m-%d').md
     if [ -e "$file" ]; then
         vim "$file"
     else 
@@ -23,3 +23,6 @@ function lb() {
         vim "$file"
     fi 
 }
+
+# added by Miniconda3 installer
+export PATH="/home/williamgrimes/miniconda3/bin:$PATH"
