@@ -61,5 +61,15 @@ function lb
         end
 end
 
+function pomodoro --argument work break
+	# https://github.com/rlue/timer
+    set x 1
+    while true
+        echo "Pomodoro $x: work $work minutes, break $break minutes"
+        timer $work $break
+        set x (math $x+1)
+    end
+end
+
 # CONDA ACTIVATE/DEACTIVATE FUNCTIONS
 source /opt/miniconda3/etc/fish/conf.d/conda.fish
