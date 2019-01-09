@@ -1,3 +1,4 @@
+# REMOVE FISH GREETING
 set fish_greeting ""
 
 # REUSE ALIASES FROM ~/.aliasrc
@@ -53,11 +54,12 @@ function lb
         set file ~/LogBook/(date '+%Y-%m-%d').md
         if test -f $file;
                 vim $file
-		echo 'loaded logbook entry ' $file
+		        echo 'loaded logbook entry ' $file
         else
-                echo '# '(date '+%Y-%m-%d') > $file
-		echo 'created logbook entry ' $file
-                vim $file
+                echo '# '(date '+%Y-%m-%d') | vim -
+		        echo 'created logbook entry ' $file
         end
 end
 
+# CONDA ACTIVATE/DEACTIVATE FUNCTIONS
+source /opt/miniconda3/etc/fish/conf.d/conda.fish
