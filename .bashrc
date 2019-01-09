@@ -14,15 +14,15 @@ export LC_ALL=en_US.UTF-8
 ###############################
 # LOGBOOK FUNCTION
 ###############################
-function lb() {
-    file=~/LogBook/$(date '+%Y-%m-%d').md
-    if [ -e "$file" ]; then
-        vim "$file"
-    else 
-        echo "# $(date '+%Y-%m-%d')" > "$file"
-        vim "$file"
-    fi 
-}
+# function lb() {
+#     file=~/LogBook/$(date '+%Y-%m-%d').md
+#     if [ -e "$file" ]; then
+#         vim "$file"
+#     else 
+#         echo "# $(date '+%Y-%m-%d')" > "$file"
+#         vim "$file"
+#     fi 
+# }
 
 # added by Miniconda3 installer
-export PATH="/home/williamgrimes/miniconda3/bin:$PATH"
+export PATH="/opt/miniconda3/bin:$PATH"
