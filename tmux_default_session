@@ -7,7 +7,6 @@ tmux new-session \; \
   new-window 'ranger' \; \
   rename-window 'ranger' \; \
   send-keys 'ranger' C-m \; \
-  new-window 'lb' \; \
-  rename-window 'logbook' \; \
+  #new-window 'lb' \; \
+  #rename-window 'logbook' \; \
   new-window 'fish'\; \
-
