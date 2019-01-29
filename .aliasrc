@@ -36,6 +36,11 @@ alias rm='rm -I'
 alias cs='cd;ls'
 
 ###############################
+# COUNT DIR
+###############################
+alias count_dir='find ./ -mindepth 2 -type f | cut -d/ -f2 | sort | uniq -c | sort -nr'
+
+###############################
 # DATE AND TIME
 ###############################
 alias now='date +"%T"'
