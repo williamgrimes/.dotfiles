@@ -140,4 +140,17 @@ NC='\[\033[0m\]'
 
 PS1="$yellow[$CYAN\t$yellow][$red\H$yellow][$GREEN\w$grey$yellow]$NC# "
 
+# added by Miniconda3 installer
+export PATH="/home/miniconda/bin:$PATH"
+
 source ~/.aliasrc
+
+if [ -d "/home/wgrimes/numerico" ] ; then
+    export PYTHONPATH="$PYTHONPATH:/home/wgrimes/numerico"
+    export PYTHONPATH="$PYTHONPATH:/home/wgrimes/zebra"
+fi
+
+###############################
+# Z - JUMP AROUND
+###############################
+. ~/.dotfiles/z/z.sh

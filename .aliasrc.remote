@@ -1,6 +1,11 @@
 # ~/.aliasrc
 
 ###############################
+# TMUX SESSION TEMPLATES
+###############################
+alias t='bash ~/.dotfiles/.tmux/default_session.sh'
+
+###############################
 # LIST
 ###############################
 alias ls='ls --color=auto'
@@ -16,13 +21,11 @@ alias rm='rm -I'
 # CHANGE DIRECTORY
 ###############################
 alias cs='cd;ls'
-alias cd..='cd ..' 
-alias ..='cd ..' 
-alias ...='cd ../../../' 
-alias ....='cd ../../../../' 
-alias .....='cd ../../../../' 
-alias .4='cd ../../../../' 
-alias .5='cd ../../../../..'
+
+###############################
+# COUNT DIR
+###############################
+alias count_dir='find ./ -mindepth 2 -type f | cut -d/ -f2 | sort | uniq -c | sort -nr'
 
 ###############################
 # DATE AND TIME
@@ -37,11 +40,12 @@ alias nowdate='date +"%d-%m-%Y"'
 alias apt-get='sudo apt-get'
 alias reboot='sudo reboot'
 alias update='sudo apt-get update'
-alias upgradee='sudo apt-get upgrade'
+alias upgrade='sudo apt-get upgrade'
 
 ###############################
 # VIM
 ###############################
+alias v=vim
 alias vi=vim 
 alias svi='sudo vi' 
 alias svim='sudo vi' 
@@ -51,7 +55,17 @@ alias edit='vim'
 ###############################
 # MISC
 ###############################
-alias t='tmux -2'
 alias h='history'
 alias j='jobs -l'
 alias path='echo -e ${PATH//:/\\n}'
+
+##############################
+# VISIDATA
+###############################
+alias vdd='vd $1 --csv-delimiter="|"'
+
+##############################
+# JUPYTER COLOURS
+###############################
+alias nb_solarizedd='bash ~/bash_scripts/jupyter_solarizedd.sh'
+alias nb_solarizedl='bash ~/bash_scripts/jupyter_solarizedl.sh'
