@@ -58,6 +58,7 @@ alias upgrade='sudo apt-get upgrade'
 ###############################
 # VIM
 ###############################
+alias v=vim
 alias vi=vim 
 alias svi='sudo vi' 
 alias svim='sudo vi' 
