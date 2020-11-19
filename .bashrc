@@ -23,6 +23,3 @@ export LC_ALL=en_US.UTF-8
 #         vim "$file"
 #     fi 
 # }
-
-# added by Miniconda3 installer
-export PATH="/opt/miniconda3/bin:$PATH"

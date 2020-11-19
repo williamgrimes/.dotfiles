@@ -16,7 +16,7 @@ bind-key r command-prompt "rename-window %%"
 ############################
 # RELOAD CONF 
 ############################
-bind-key R source-file ~/.tmux.conf.remote \; display-message "~/.tmux.conf.remote reloaded"
+bind-key R source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
 ############################
 # TOGGLE MOUSE MODE ON OR OFF
@@ -74,3 +74,22 @@ set -g renumber-windows on
 # TMUX LINES HISTORY
 ############################
 set -g history-limit 50000
+
+###########################
+# CHANGE WINDOWS
+############################
+bind -n S-Left  previous-window
+bind -n S-Right next-window
+bind p previous-window
+bind n next-window
+
+###########################
+# THEME
+############################
+set -g default-terminal "screen-256color"
+set -g window-status-current-bg white
+set -g window-status-current-fg black
+set -g window-status-current-attr bold
+set -g status-bg colour15
+set -g message-bg colour15
+set -g message-fg colour232

@@ -88,15 +88,15 @@ function lb
         set file ~/LogBook/(date '+%Y-%m-%d').md
         if test -f $file;
                 vim $file
-		        echo 'loaded logbook entry ' $file
+               echo 'loaded logbook entry ' $file
         else
                 echo '# '(date '+%Y-%m-%d') | vim -
-		        echo 'created logbook entry ' $file
+               echo 'created logbook entry ' $file
         end
 end
 
 function pomodoro --argument work break
-	# https://github.com/rlue/timer
+   # https://github.com/rlue/timer
     set x 1
     while true
         echo "Pomodoro $x: work $work minutes, break $break minutes"
@@ -105,5 +105,8 @@ function pomodoro --argument work break
     end
 end
 
-# CONDA ACTIVATE/DEACTIVATE FUNCTIONS
-source /opt/miniconda3/etc/fish/conf.d/conda.fish
+function log_tail --argument serv n
+    journalctl --lines=$n -f -u $serv -o cat
+end
+
+source ~/.aliasrc
