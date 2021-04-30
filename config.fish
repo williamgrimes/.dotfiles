@@ -57,7 +57,7 @@ alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 ################################################################################
 # SYSTEM SERVICES
 ################################################################################
-alias services-running='systemctl list-units --type=service state=running'
+alias services-running='systemctl list-units --type=service --state=running'
 alias services-failed='systemctl --failed'
 
 function services-log --argument serv n
