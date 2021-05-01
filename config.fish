@@ -25,6 +25,10 @@ function fish_prompt --description 'Write out the prompt'
     set -l last_status $status
     set -l normal (set_color normal)
 
+    if set -q VIRTUAL_ENV
+        echo -n -s "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+    end
+
     # Write pipestatus
     set -l prompt_status (__fish_print_pipestatus " [" "]" "|" (set_color $fish_color_status) (set_color --bold $fish_color_status) $last_pipestatus)
 
