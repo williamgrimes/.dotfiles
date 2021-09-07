@@ -42,6 +42,8 @@ alias c='clear'
 alias r='reset'
 alias q='exit'
 
+alias mv='mv -i'
+
 alias ..="cd .."
 alias ...='cd ../..'
 alias ....='cd ../../..'
