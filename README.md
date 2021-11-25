@@ -3,6 +3,7 @@ A collection of dotfiles, settings, and configurations.
 
 * aliases
 * bash
+* emacs
 * gitconfig
 * tmux
 * vim
