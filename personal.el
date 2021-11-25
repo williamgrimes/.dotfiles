@@ -8,11 +8,13 @@
 ;; evil
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ex-kill-buffer-and-close ()
+  "Kill current buffer."
   (interactive)
   (unless (char-equal (elt (buffer-name) 0) ?*)
     (kill-this-buffer)))
 
 (defun ex-save-kill-buffer-and-close ()
+  "Save current buffer then kill it."
   (interactive)
   (save-buffer)
   (kill-this-buffer))
@@ -20,8 +22,8 @@
 (evil-ex-define-cmd "q[uit]" 'ex-kill-buffer-and-close )
 (evil-ex-define-cmd "wq" 'ex-save-kill-buffer-and-close)
 
-; for read-only buffers use q to quit-window
 (defun my-evil-record-macro ()
+  "For read-only buffers use q to `quit-window`."
   (interactive)
   (if buffer-read-only
       (quit-window)
@@ -30,7 +32,7 @@
 (with-eval-after-load 'evil-maps
   (define-key evil-normal-state-map (kbd "q") 'my-evil-record-macro))
 
-;; use emacs keybindings
+;; use default emacs keybindings in modes
 (evil-set-initial-state 'image-dired-thumbnail-mode 'emacs)
 (evil-set-initial-state 'image-dired-display-image-mode 'emacs)
 (evil-set-initial-state 'image-mode 'emacs)
@@ -58,10 +60,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defcustom display-line-numbers-exempt-modes
   '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode cider-repl-mode)
-  "Major modes on which to disable line numbers."
-  :group 'display-line-numbers
-  :type 'list
-  :version "green")
+  "Major modes on which to disable line numbers.")
 
 (defun display-line-numbers--turn-on ()
   "Turn on line numbers except for certain major modes.
