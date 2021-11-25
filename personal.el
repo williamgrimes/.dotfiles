@@ -5,6 +5,23 @@
 ;;; Code:
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; required packages
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(prelude-require-package 'nord-theme)
+(prelude-require-package 'dashboard)
+(prelude-require-package 'all-the-icons)
+(prelude-require-package 'display-line-numbers)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; theme (set in personal/preload/theme.el)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(disable-theme 'zenburn)
+(toggle-scroll-bar -1)
+(menu-bar-mode -1)
+(blink-cursor-mode 1)
+; (toggle-truncate-lines -1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; evil
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ex-kill-buffer-and-close ()
@@ -36,24 +53,6 @@
 (evil-set-initial-state 'image-dired-thumbnail-mode 'emacs)
 (evil-set-initial-state 'image-dired-display-image-mode 'emacs)
 (evil-set-initial-state 'image-mode 'emacs)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; required packages
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(prelude-require-package 'nord-theme)
-(prelude-require-package 'dashboard)
-(prelude-require-package 'all-the-icons)
-(prelude-require-package 'display-line-numbers)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; theme (set in personal/preload/theme.el)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; (setq prelude-whitespace nil)
-(toggle-scroll-bar -1)
-(menu-bar-mode -1)
-(blink-cursor-mode 1)
-(disable-theme 'zenburn)
-; (toggle-truncate-lines -1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; line-numbers
