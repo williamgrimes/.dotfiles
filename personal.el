@@ -155,4 +155,10 @@
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 (setq dired-listing-switches "-laXhG --group-directories-first")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; idle highlight - https://stackoverflow.com/a/5816139
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'prog-mode-hook (lambda () (idle-highlight-mode t)
+                                     (setq-local idle-highlight-exclude-point t)))
+
 ;;; personal.el ends here
