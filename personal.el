@@ -10,6 +10,7 @@
 (prelude-require-package 'nord-theme)
 (prelude-require-package 'dashboard)
 (prelude-require-package 'all-the-icons)
+(prelude-require-package 'all-the-icons-dired)
 (prelude-require-package 'display-line-numbers)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -153,6 +154,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://superuser.com/a/566401
 (add-hook 'dired-mode-hook 'auto-revert-mode)
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 (setq dired-listing-switches "-laXhG --group-directories-first")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
