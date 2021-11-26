@@ -5,17 +5,6 @@ set fish_greeting ""
 ################################################################################
 #  sudo apt install fish
 
-#  From within fish:
-#  curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-#  sudo apt install fasd
-#  sudo apt install thefuck
-#  fisher install fishgretel/fasd
-
-################################################################################
-# thefuck	sudo apt install thefuck
-################################################################################
-eval (thefuck --alias | tr '\n' ';')
-
 ################################################################################
 # prompt https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_prompt.fish
 ################################################################################
@@ -34,6 +23,11 @@ function fish_prompt --description 'Write out the prompt'
 
     echo -n -s $normal "["(date "+%H:%M:%S")"]" (set_color 5E81AC)  "[$USER]"(set_color 81A1C1) "["(prompt_hostname)"] " (set_color D08770) (prompt_pwd) $normal (fish_vcs_prompt) $normal $prompt_status $suffix " "
 end
+
+################################################################################
+# z jump around - https://github.com/sjl/z-fish
+################################################################################
+. ~/.config/fish/z-fish/z.fish
 
 ################################################################################
 # aliases
