@@ -12,6 +12,7 @@
 (prelude-require-package 'all-the-icons)
 (prelude-require-package 'all-the-icons-dired)
 (prelude-require-package 'display-line-numbers)
+(prelude-require-package 'org-superstar)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; theme (set in personal/preload/theme.el)
@@ -160,6 +161,18 @@
               "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl")))
 
 (setq org-agenda-files '("~/Org"))
+
+;; Improve org mode looks
+(setq org-startup-indented t
+      org-pretty-entities t
+      org-hide-emphasis-markers t
+      org-startup-with-inline-images t
+      org-image-actual-width '(300))
+
+(add-hook 'org-mode-hook (lambda ()
+                           (org-superstar-mode 1)))
+
+(setq org-superstar-special-todo-items t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; dired
