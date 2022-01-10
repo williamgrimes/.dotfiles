@@ -75,11 +75,15 @@
 ;; dashboard
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (dashboard-setup-startup-hook)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
 (setq dashboard-items '((recents  . 10)
                         (bookmarks . 5)
-                        (projects . 5)
-                        ;(agenda . 5)
+                        (projects . 10)
+                        (agenda . 5)
                         (registers . 3)))
+(setq dashboard-week-agenda t)
+(setq dashboard-agenda-release-buffers t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ibuffer - http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
@@ -148,6 +152,8 @@
 (setq org-latex-logfiles-extensions
       (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb"
               "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl")))
+
+(setq org-agenda-files '("~/Org"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; dired
