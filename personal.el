@@ -174,6 +174,16 @@
 
 (setq org-superstar-special-todo-items t)
 
+(define-skeleton org-header-skeleton
+  "Header info for an Org file."
+  "Title: ""#+TITLE: " str " \n"
+  "#+AUTHOR: " user-full-name "\n"
+  "#+EMAIL: " user-mail-address "\n"
+  "#+DATE: " (format-time-string "%Y-%m-%d") "\n"
+  "#+STARTUP: content \n")
+
+(global-set-key [C-S-f1] 'org-header-skeleton)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; dired
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
