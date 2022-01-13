@@ -151,11 +151,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org - https://emacs.stackexchange.com/a/38443
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'org-shiftup-final-hook 'windmove-up)
-(add-hook 'org-shiftleft-final-hook 'windmove-left)
-(add-hook 'org-shiftdown-final-hook 'windmove-down)
-(add-hook 'org-shiftright-final-hook 'windmove-right)
-
 ;; Todo keywords. Change these to your liking
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
