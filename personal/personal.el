@@ -8,6 +8,9 @@
 ;; required packages
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (prelude-require-package 'nord-theme)
+(prelude-require-package 'solarized-theme)
+(prelude-require-package 'kosmos-theme)
+(prelude-require-package 'theme-looper)
 (prelude-require-package 'dashboard)
 (prelude-require-package 'all-the-icons)
 (prelude-require-package 'all-the-icons-dired)
@@ -22,6 +25,11 @@
 (menu-bar-mode -1)
 (blink-cursor-mode 1)
 ; (toggle-truncate-lines -1)
+(theme-looper-set-favorite-themes
+ '(nord kosmos solarized-dark solarized-light leuven default))
+
+(global-set-key (kbd "C-|") 'theme-looper-select-theme)
+(global-set-key (kbd "C-M-|") 'theme-looper-select-theme-from-all)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; keybindings
