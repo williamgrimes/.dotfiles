@@ -92,7 +92,7 @@
 (setq dashboard-set-heading-icons t)
 (setq dashboard-set-file-icons t)
 (setq dashboard-items '((recents  . 10)
-                        (bookmarks . 5)
+                        (bookmarks . 10)
                         (projects . 10)
                         (agenda . 5)
                         (registers . 3)))
