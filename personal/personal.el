@@ -111,9 +111,7 @@
 (setq ibuffer-saved-filter-groups
   '(("home"
      ("Clojure" (mode . clojure-mode))
-     ("Clojure REPL" (or (mode . cider-repl-mode)
-                         (mode . nrepl-messages-mode)
-                         (mode . cider-stacktrace-mode)
+     ("Clojure REPL" (or (name . "\*cider")
                          (name . "\*nrepl")))
      ("Data" (or (filename . "csv")
                  (filename . "json$")))
