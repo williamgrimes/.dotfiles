@@ -16,6 +16,8 @@
 (prelude-require-package 'all-the-icons-dired)
 (prelude-require-package 'display-line-numbers)
 (prelude-require-package 'org-superstar)
+(prelude-require-package 'geiser)
+(prelude-require-package 'geiser-mit)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; theme (set in personal/preload/theme.el)
@@ -73,7 +75,8 @@
 ;; line-numbers
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defcustom display-line-numbers-exempt-modes
-  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode cider-repl-mode)
+  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode cider-repl-mode
+               geiser-repl-mode)
   "Major modes on which to disable line numbers.")
 
 (defun display-line-numbers--turn-on ()
