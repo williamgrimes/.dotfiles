@@ -28,7 +28,8 @@
 (toggle-scroll-bar -1)
 (menu-bar-mode -1)
 (blink-cursor-mode 1)
-; (toggle-truncate-lines -1)
+(toggle-truncate-lines -1)
+
 (theme-looper-set-favorite-themes
  '(nord kosmos solarized-dark solarized-light leuven default))
 
@@ -190,9 +191,6 @@
       org-startup-with-inline-images t
       org-image-actual-width '(300))
 
-(add-hook 'org-mode-hook (lambda ()
-                           (org-superstar-mode 1)))
-
 (setq org-superstar-special-todo-items t)
 
 (define-skeleton org-header-skeleton
@@ -202,6 +200,9 @@
   "#+EMAIL: " user-mail-address "\n"
   "#+DATE: " (format-time-string "%Y-%m-%d") "\n"
   "#+STARTUP: content \n")
+
+(add-hook 'org-mode-hook  #'visual-line-mode)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 (global-set-key [C-S-f1] 'org-header-skeleton)
 
