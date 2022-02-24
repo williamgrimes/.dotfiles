@@ -3,8 +3,8 @@ set ignorecase  " do case insensitive search
 set incsearch   " show incremental search results as you type
 set noswapfile  " disable swap file
 
-set number      " display line number
-:highlight LineNr ctermfg=DarkGrey
+" set number      " display line number
+" :highlight LineNr ctermfg=DarkGrey
 
 set tabstop=4
 set shiftwidth=4
