@@ -112,6 +112,13 @@
 (setq dashboard-week-agenda t)
 (setq dashboard-agenda-release-buffers t)
 
+(defun switch-to-dashboard ()
+  "Switch to *dashboard* buffer if running."
+  (interactive)
+  (switch-to-buffer "*dashboard*"))
+
+(global-set-key (kbd "C-x C-h") 'switch-to-dashboard)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ibuffer - http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
