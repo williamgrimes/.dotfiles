@@ -2,6 +2,32 @@
 
 ;;; Commentary: Emacs Startup File --- initialization for Emacs
 
+;;; Installation:
+;;;
+;;; 1) Install emacs27.1
+;;; sudo add-apt-repository ppa:kelleyk/emacs
+;;; sudo apt update
+;;; sudo apt install emacs27
+;;;
+;;; 2) Install Prelude
+;;; curl -L https://github.com/bbatsov/prelude/raw/master/utils/installer.sh | sh
+;;;
+;;; 3) Remove personal folder
+;;; sudo rm -r ~/.emacs.d/personal
+;;;
+;;; 4) Symlink personal folder
+;;; ln -s ~/.dotfiles/personal ~/.emacs.d/
+;;;
+;;; 5) Launch emacs
+;;; M-x package-install
+;;; solarized-theme
+;;;
+;;; 6) Launch emacs and install all-the-icons-fonts
+;;; M-x all-the-icons-install-fonts
+;;;
+;;; 7) dashboard version to avoid Symbol void org-agenda-p
+;;; dashboard-20211221.2005
+
 ;;; Code:
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -18,8 +44,6 @@
 (prelude-require-package 'org-superstar)
 (prelude-require-package 'geiser)
 (prelude-require-package 'geiser-mit)
-
-; M-x all-the-icons-install-fonts
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; theme (set in personal/preload/theme.el)
