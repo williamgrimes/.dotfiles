@@ -90,6 +90,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'gfm-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
 (add-hook 'web-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
+(add-hook 'org-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; dashboard
