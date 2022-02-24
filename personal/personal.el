@@ -19,6 +19,8 @@
 (prelude-require-package 'geiser)
 (prelude-require-package 'geiser-mit)
 
+; M-x all-the-icons-install-fonts
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; theme (set in personal/preload/theme.el)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
