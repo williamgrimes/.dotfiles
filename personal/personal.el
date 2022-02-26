@@ -52,6 +52,7 @@
 (toggle-scroll-bar -1)
 (menu-bar-mode -1)
 (blink-cursor-mode 1)
+(setq-default truncate-lines t)
 (toggle-truncate-lines -1)
 
 (theme-looper-set-favorite-themes
