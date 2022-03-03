@@ -1,0 +1,278 @@
+#+TITLE: Prelude-Emacs Initialisation
+#+AUTHOR: William Grimes
+#+EMAIL: wiliamgrimes@gmx.com
+#+DATE: 2022-03-03
+#+STARTUP: content
+
+* installation
+1. Install emacs27.1
+  #+begin_comment
+  sudo add-apt-repository ppa:kelleyk/emacs
+  sudo apt update
+  sudo apt install emacs27
+  #+end_comment
+2. Install Prelude
+  #+begin_comment
+  curl -L https://github.com/bbatsov/prelude/raw/master/utils/installer.sh | sh
+  #+end_comment
+3. Remove personal folder
+  #+begin_comment
+  sudo rm -r ~/.emacs.d/personal
+  #+end_comment
+4. Symlink personal folder
+  #+begin_comment
+  ln -s ~/.dotfiles/personal ~/.emacs.d/
+  #+end_comment
+5. Launch emacs
+  #+begin_comment
+  M-x package-install solarized-theme
+  #+end_comment
+6. Launch emacs and install all-the-icons-fonts
+  #+begin_comment
+  M-x all-the-icons-install-fonts
+  #+end_comment
+7) dashboard version to avoid Symbol void org-agenda-p
+  #+begin_comment
+  dashboard-20211221.2005
+  #+end_comment
+
+* prelude-require-package
+#+begin_src emacs-lisp
+(prelude-require-package 'nord-theme)
+(prelude-require-package 'solarized-theme)
+(prelude-require-package 'kosmos-theme)
+(prelude-require-package 'theme-looper)
+(prelude-require-package 'dashboard)
+(prelude-require-package 'all-the-icons)
+(prelude-require-package 'all-the-icons-dired)
+(prelude-require-package 'display-line-numbers)
+(prelude-require-package 'org-superstar)
+(prelude-require-package 'geiser)
+(prelude-require-package 'geiser-mit)
+(prelude-require-package 'ein)
+#+end_src
+
+* appearance
+Theme set in `personal/preload/preload.el`
+
+#+begin_src emacs-lisp
+(disable-theme 'zenburn)
+(toggle-scroll-bar -1)
+(menu-bar-mode -1)
+(blink-cursor-mode 1)
+(setq-default truncate-lines t)
+(toggle-truncate-lines -1)
+
+(theme-looper-set-favorite-themes
+ '(nord kosmos solarized-dark solarized-light leuven default))
+#+end_src
+
+* keybindings
+#+begin_src emacs-lisp
+(setq prelude-super-keybindings nil)
+
+(global-set-key (kbd "C-|") 'theme-looper-select-theme)
+(global-set-key (kbd "C-M-|") 'theme-looper-select-theme-from-all)
+
+(global-set-key (kbd "C-x C-h") 'switch-to-dashboard)
+
+(global-set-key [C-S-f1] 'org-header-skeleton)
+#+end_src
+
+* evil-quit
+Quit application with :q and :wq like in vim.
+#+begin_src emacs-lisp
+(defun ex-kill-buffer-and-close ()
+  "Kill current buffer."
+  (interactive)
+  (unless (char-equal (elt (buffer-name) 0) ?*)
+    (kill-this-buffer)))
+
+(defun ex-save-kill-buffer-and-close ()
+  "Save current buffer then kill it."
+  (interactive)
+  (save-buffer)
+  (kill-this-buffer))
+
+(evil-ex-define-cmd "q[uit]" 'ex-kill-buffer-and-close )
+(evil-ex-define-cmd "wq" 'ex-save-kill-buffer-and-close)
+
+(defun my-evil-record-macro ()
+  "For read-only buffers use q to `quit-window`."
+  (interactive)
+  (if buffer-read-only
+      (quit-window)
+    (call-interactively 'evil-record-macro)))
+
+(with-eval-after-load 'evil-maps
+  (define-key evil-normal-state-map (kbd "q") 'my-evil-record-macro))
+
+;; use default emacs keybindings in modes
+(evil-set-initial-state 'image-dired-thumbnail-mode 'emacs)
+(evil-set-initial-state 'image-dired-display-image-mode 'emacs)
+(evil-set-initial-state 'image-mode 'emacs)
+#+end_src
+
+* line-numbers
+Globally display line numbers except certain modes.
+
+#+begin_src emacs-lisp
+(defcustom display-line-numbers-exempt-modes
+  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode cider-repl-mode
+               geiser-repl-mode)
+  "Major modes on which to disable line numbers.")
+
+(defun display-line-numbers--turn-on ()
+  "Turn on line numbers except for certain major modes.
+   Exempt major modes are defined in `display-line-numbers-exempt-modes'."
+  (unless (or (minibufferp)
+              (member major-mode display-line-numbers-exempt-modes))
+    (display-line-numbers-mode)))
+
+(global-display-line-numbers-mode)
+#+end_src
+
+* whitespace
+Allow long lines without highlighting in certain modes.
+
+#+begin_src emacs-lisp
+(add-hook 'gfm-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
+(add-hook 'web-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
+(add-hook 'org-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
+#+end_src
+
+* dashboard
+Configuration of dashboard.
+
+#+begin_src emacs-lisp
+(dashboard-setup-startup-hook)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
+(setq dashboard-items '((recents  . 10)
+                        (bookmarks . 10)
+                        (projects . 10)
+                        (agenda . 5)
+                        (registers . 3)))
+(setq dashboard-week-agenda t)
+(setq dashboard-agenda-release-buffers t)
+
+(defun switch-to-dashboard ()
+  "Switch to *dashboard* buffer if running."
+  (interactive)
+  (switch-to-buffer "*dashboard*"))
+#+end_src
+
+* ibuffer
+ibuffer setup with expert mode set true.
+http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
+
+#+begin_src emacs-lisp
+(setq ibuffer-saved-filter-groups
+  '(("home"
+     ("Clojure" (mode . clojure-mode))
+     ("Clojure REPL" (or (name . "\*cider")
+                         (name . "\*nrepl")))
+     ("Data" (or (filename . "csv")
+                 (filename . "json$")))
+     ("Dired" (mode . dired-mode))
+     ("Docs" (mode . doc-view-mode))
+     ("TeX" (or (mode . TeX-output-mode)
+                (mode . latex-mode)))
+     ("emacs-config" (or (filename . ".emacs.d")
+                         (filename . "personal.el")
+                         (filename . "emacs-config")))
+     ("Images" (or (mode . image-mode)
+                   (name . "\*image-dired")))
+     ("Magit" (or (name . "\*magit")
+                  (mode . magit-log-mode)
+                  (mode . magit-status-mode)
+                  (mode . magit-diff-mode)
+                  (mode . magit-process-mode)
+                  (mode . magit-revision-mode)))
+     ("Org" (or (mode . org-mode)
+                (filename . "Org")))
+     ("Python" (or (mode . python-mode)
+                   (mode . anaconda-mode)
+                   (name . "\*Python\*")
+                   (name . "\*gud-pdb\*")
+                   (name . "\*Anaconda\*")
+                   (name . "\*anaconda-mode\*")))
+     ("Shells" (or (mode . eshell-mode)
+                   (mode . bash-mode)
+                   (mode . shell-mode)))
+     ("Web" (or (mode . web-mode)
+                (mode . html-mode)
+                (mode . js2-mode)
+                (mode . css-mode)
+                (mode . gfm-mode)))
+     ("Help" (or (name . "\*Help\*")
+                 (name . "\*Apropos\*")
+                 (name . "\*info\*"))))))
+
+(add-hook 'ibuffer-mode-hook
+          '(lambda ()
+             (ibuffer-switch-to-saved-filter-groups "home")))
+
+(setq ibuffer-expert t)
+
+(setq ibuffer-show-empty-filter-groups nil)
+
+(add-hook 'ibuffer-mode-hook
+          '(lambda ()
+             (ibuffer-auto-mode 1)
+             (ibuffer-switch-to-saved-filter-groups "home")))
+#+end_src
+
+* org
+org-mode configuration.
+https://emacs.stackexchange.com/a/38443
+
+#+begin_src emacs-lisp
+;; Todo keywords. Change these to your liking
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+
+; clean latex logfiles
+(setq org-latex-logfiles-extensions
+      (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb"
+              "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl")))
+
+(setq org-agenda-files '("~/Org"))
+
+;; Improve org mode looks
+(setq org-startup-indented t
+      org-pretty-entities t
+      org-hide-emphasis-markers t
+      org-startup-with-inline-images t
+      org-image-actual-width '(300))
+
+(setq org-superstar-special-todo-items t)
+
+(define-skeleton org-header-skeleton
+  "Header info for an Org file."
+  "Title: ""#+TITLE: " str "\n"
+  "#+AUTHOR: " user-full-name "\n"
+  "#+EMAIL: " user-mail-address "\n"
+  "#+DATE: " (format-time-string "%Y-%m-%d") "\n"
+  "#+STARTUP: content\n")
+
+(add-hook 'org-mode-hook  #'visual-line-mode)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+#+end_src
+
+* dired
+https://superuser.com/a/566401
+
+#+begin_src emacs-lisp
+(add-hook 'dired-mode-hook 'auto-revert-mode)
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(setq dired-listing-switches "-laXhG --group-directories-first")
+#+end_src
+
+* idle highlight
+https://stackoverflow.com/a/5816139
+
+#+begin_src emacs-lisp
+(add-hook 'prog-mode-hook (lambda () (idle-highlight-mode t)
+                                     (setq-local idle-highlight-exclude-point t)))
+#+end_src
