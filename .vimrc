@@ -74,3 +74,9 @@ augroup GetGitBranch
   autocmd BufEnter * let b:git_branch = StatuslineGitBranch()
 augroup END
 
+" vimdiff https://www.codyhiar.com/blog/vimdiff-better-highlighting/
+highlight DiffAdd    cterm=BOLD ctermfg=0 ctermbg=2
+highlight DiffDelete cterm=BOLD ctermfg=0 ctermbg=1
+highlight DiffChange cterm=BOLD ctermfg=0 ctermbg=6
+highlight DiffText   cterm=BOLD ctermfg=0 ctermbg=6
+
