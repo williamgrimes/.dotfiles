@@ -70,6 +70,7 @@ endfunction
 
 augroup GetGitBranch
   autocmd!
-  autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
+  " autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
+  autocmd BufEnter * let b:git_branch = StatuslineGitBranch()
 augroup END
 
