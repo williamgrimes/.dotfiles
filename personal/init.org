@@ -41,6 +41,7 @@
 (prelude-require-package 'nord-theme)
 (prelude-require-package 'solarized-theme)
 (prelude-require-package 'kosmos-theme)
+(prelude-require-package 'afternoon-theme)
 (prelude-require-package 'theme-looper)
 (prelude-require-package 'dashboard)
 (prelude-require-package 'all-the-icons)
