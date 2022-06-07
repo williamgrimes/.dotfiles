@@ -219,6 +219,7 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
                    (name . "\*anaconda-mode\*")))
      ("Shells" (or (mode . eshell-mode)
                    (mode . bash-mode)
+                   (mode . sh-mode)
                    (mode . shell-mode)))
      ("Web" (or (mode . web-mode)
                 (mode . html-mode)
