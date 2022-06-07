@@ -72,6 +72,10 @@ Theme set in `personal/preload/preload.el`
 (setq scroll-preserve-screen-position t)
 (setq mouse-wheel-scroll-amount '(1))
 #+end_src
+Allow single blank line at end of file
+https://stackoverflow.com/q/71511542/2545164
+#+begin_src emacs-lisp
+(setq whitespace-empty-at-eob-regexp "^[ \t\n]\\([ \t\n]+\\)\\'")
 #+end_src
 
 * keybindings
