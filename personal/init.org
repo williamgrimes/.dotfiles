@@ -156,10 +156,10 @@ Configuration of dashboard.
 (dashboard-setup-startup-hook)
 (setq dashboard-set-heading-icons t)
 (setq dashboard-set-file-icons t)
-(setq dashboard-items '((recents  . 10)
-                        (bookmarks . 10)
+(setq dashboard-items '((agenda . 10)
                         (projects . 10)
-                        (agenda . 5)
+                        (recents  . 10)
+                        (bookmarks . 10)
                         (registers . 3)))
 (setq dashboard-week-agenda t)
 (setq dashboard-agenda-release-buffers t)
@@ -168,6 +168,12 @@ Configuration of dashboard.
   "Switch to *dashboard* buffer if running."
   (interactive)
   (switch-to-buffer "*dashboard*"))
+
+(setq dashboard-center-content t)
+(setq dashboard-startup-banner "~/.dotfiles/personal/emacs2.png")
+(setq dashboard-image-banner-max-height 200)
+(setq dashboard-banner-logo-title
+  (replace-regexp-in-string " (.*\n.*" "" (emacs-version)))
 #+end_src
 
 * ibuffer
