@@ -38,6 +38,7 @@
 
 * prelude-require-package
 #+begin_src emacs-lisp
+(prelude-require-package 'leuven-theme)
 (prelude-require-package 'nord-theme)
 (prelude-require-package 'solarized-theme)
 (prelude-require-package 'kosmos-theme)
@@ -50,6 +51,7 @@
 (prelude-require-package 'org-superstar)
 (prelude-require-package 'geiser)
 (prelude-require-package 'geiser-mit)
+(prelude-require-package 'ranger)
 (prelude-require-package 'ein)
 #+end_src
 
