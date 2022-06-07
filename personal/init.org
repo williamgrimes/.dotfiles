@@ -4,7 +4,7 @@
 #+DATE: 2022-03-03
 #+STARTUP: content
 
-* installation
+* Installation
 1. Install emacs27.1
   #+begin_comment
   sudo add-apt-repository ppa:kelleyk/emacs
@@ -36,7 +36,7 @@
   dashboard-20211221.2005
   #+end_comment
 
-* prelude-require-package
+* Packages
 #+begin_src emacs-lisp
 (prelude-require-package 'leuven-theme)
 (prelude-require-package 'nord-theme)
@@ -55,7 +55,8 @@
 (prelude-require-package 'ein)
 #+end_src
 
-* appearance
+* Appearance and Behaviour
+** Display
 Theme set in `personal/preload/preload.el`
 
 #+begin_src emacs-lisp
@@ -63,25 +64,67 @@ Theme set in `personal/preload/preload.el`
 (toggle-scroll-bar -1)
 (menu-bar-mode -1)
 (blink-cursor-mode 1)
+#+end_src
+
+** Theme Looper
+#+begin_src emacs-lisp
+(theme-looper-set-favorite-themes
+ '(afternoon nord kosmos solarized-dark
+   solarized-light leuven leuven-dark default))
+#+end_src
+
+** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil :font "Ubuntu Mono" :height 150)
 #+end_src
+
+** Line truncation
+#+begin_src emacs-lisp
 (setq-default truncate-lines t)
 (toggle-truncate-lines -1)
+#+end_src
 
-(theme-looper-set-favorite-themes
- '(nord kosmos solarized-dark solarized-light leuven default))
+** Line numbers
+Globally display line numbers except certain modes.
+
+#+begin_src emacs-lisp
+(defcustom display-line-numbers-exempt-modes
+  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode cider-repl-mode
+               geiser-repl-mode)
+  "Major modes on which to disable line numbers.")
+
+(defun display-line-numbers--turn-on ()
+  "Turn on line numbers except for certain major modes.
+   Exempt major modes are defined in `display-line-numbers-exempt-modes'."
+  (unless (or (minibufferp)
+              (member major-mode display-line-numbers-exempt-modes))
+    (display-line-numbers-mode)))
+
+(global-display-line-numbers-mode)
+#+end_src
+
+** Scrolling
 #+begin_src emacs-lisp
 (setq scroll-preserve-screen-position t)
 (setq mouse-wheel-scroll-amount '(1))
 #+end_src
+
+** Whitespace mode
+Allow long lines without highlighting in certain modes.
+#+begin_src emacs-lisp
+(add-hook 'gfm-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
+(add-hook 'web-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
+(add-hook 'org-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
+(add-hook 'latex-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
+#+end_src
+
 Allow single blank line at end of file
 https://stackoverflow.com/q/71511542/2545164
 #+begin_src emacs-lisp
 (setq whitespace-empty-at-eob-regexp "^[ \t\n]\\([ \t\n]+\\)\\'")
 #+end_src
 
-* keybindings
+** Keybindings
 #+begin_src emacs-lisp
 (setq prelude-super-keybindings nil)
 
@@ -95,8 +138,7 @@ https://stackoverflow.com/q/71511542/2545164
 (global-set-key [C-S-f1] 'org-header-skeleton)
 #+end_src
 
-* evil-quit
-Quit application with :q and :wq like in vim.
+Evil quit application with :q and :wq like in vim.
 #+begin_src emacs-lisp
 (defun ex-kill-buffer-and-close ()
   "Kill current buffer."
@@ -129,36 +171,14 @@ Quit application with :q and :wq like in vim.
 (evil-set-initial-state 'image-mode 'emacs)
 #+end_src
 
-* line-numbers
-Globally display line numbers except certain modes.
+** Idle Highlight
+https://stackoverflow.com/a/5816139
 
 #+begin_src emacs-lisp
-(defcustom display-line-numbers-exempt-modes
-  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode cider-repl-mode
-               geiser-repl-mode)
-  "Major modes on which to disable line numbers.")
-
-(defun display-line-numbers--turn-on ()
-  "Turn on line numbers except for certain major modes.
-   Exempt major modes are defined in `display-line-numbers-exempt-modes'."
-  (unless (or (minibufferp)
-              (member major-mode display-line-numbers-exempt-modes))
-    (display-line-numbers-mode)))
-
-(global-display-line-numbers-mode)
+(add-hook 'prog-mode-hook (lambda () (idle-highlight-mode t)
+                                     (setq-local idle-highlight-exclude-point t)))
 #+end_src
-
-* whitespace
-Allow long lines without highlighting in certain modes.
-
-#+begin_src emacs-lisp
-(add-hook 'gfm-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
-(add-hook 'web-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
-(add-hook 'org-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
-(add-hook 'latex-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
-#+end_src
-
-* dashboard
+* Dashboard
 Configuration of dashboard.
 
 #+begin_src emacs-lisp
@@ -185,7 +205,7 @@ Configuration of dashboard.
   (replace-regexp-in-string " (.*\n.*" "" (emacs-version)))
 #+end_src
 
-* ibuffer
+* Ibuffer
 ibuffer setup with expert mode set true.
 http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 
@@ -247,7 +267,7 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
              (ibuffer-switch-to-saved-filter-groups "home")))
 #+end_src
 
-* org
+* Org
 org-mode configuration.
 https://emacs.stackexchange.com/a/38443
 
@@ -284,7 +304,7 @@ https://emacs.stackexchange.com/a/38443
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 #+end_src
 
-* dired
+* Dired
 https://superuser.com/a/566401
 
 #+begin_src emacs-lisp
@@ -293,10 +313,3 @@ https://superuser.com/a/566401
 (setq dired-listing-switches "-laXhG --group-directories-first")
 #+end_src
 
-* idle highlight
-https://stackoverflow.com/a/5816139
-
-#+begin_src emacs-lisp
-(add-hook 'prog-mode-hook (lambda () (idle-highlight-mode t)
-                                     (setq-local idle-highlight-exclude-point t)))
-#+end_src
