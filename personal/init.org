@@ -68,6 +68,10 @@ Theme set in `personal/preload/preload.el`
 
 (theme-looper-set-favorite-themes
  '(nord kosmos solarized-dark solarized-light leuven default))
+#+begin_src emacs-lisp
+(setq scroll-preserve-screen-position t)
+(setq mouse-wheel-scroll-amount '(1))
+#+end_src
 #+end_src
 
 * keybindings
