@@ -82,6 +82,8 @@ https://stackoverflow.com/q/71511542/2545164
 #+begin_src emacs-lisp
 (setq prelude-super-keybindings nil)
 
+(setq confirm-kill-emacs 'y-or-n-p)
+
 (global-set-key (kbd "C-|") 'theme-looper-select-theme)
 (global-set-key (kbd "C-M-|") 'theme-looper-select-theme-from-all)
 
