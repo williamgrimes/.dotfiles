@@ -63,6 +63,9 @@ Theme set in `personal/preload/preload.el`
 (toggle-scroll-bar -1)
 (menu-bar-mode -1)
 (blink-cursor-mode 1)
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil :font "Ubuntu Mono" :height 150)
+#+end_src
 (setq-default truncate-lines t)
 (toggle-truncate-lines -1)
 
