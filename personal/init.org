@@ -65,19 +65,20 @@ Theme set in `personal/preload/preload.el`
 (menu-bar-mode -1)
 (blink-cursor-mode 1)
 #+end_src
-
 ** Theme Looper
 #+begin_src emacs-lisp
 (theme-looper-set-favorite-themes
  '(afternoon nord kosmos solarized-dark
    solarized-light leuven leuven-dark default))
 #+end_src
-
+** Dictionary
+#+begin_src emacs-lisp
+(setq ispell-dictionary "british")
+#+end_src
 ** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil :font "Ubuntu Mono" :height 150)
 #+end_src
-
 ** Line truncation
 #+begin_src emacs-lisp
 (setq-default truncate-lines t)
