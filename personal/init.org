@@ -137,6 +137,11 @@ https://stackoverflow.com/q/71511542/2545164
 (global-set-key (kbd "C-x C-h") 'switch-to-dashboard)
 
 (global-set-key [C-S-f1] 'org-header-skeleton)
+
+(global-set-key (kbd "C-S-h")  'windmove-left)
+(global-set-key (kbd "C-S-l") 'windmove-right)
+(global-set-key (kbd "C-S-k")    'windmove-up)
+(global-set-key (kbd "C-S-j")  'windmove-down)
 #+end_src
 
 Evil quit application with :q and :wq like in vim.
