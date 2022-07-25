@@ -180,6 +180,8 @@ Evil quit application with :q and :wq like in vim.
 #+begin_src emacs-lisp
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+(setq evil-emacs-state-modes (delq 'recentf-dialog-mode evil-emacs-state-modes))
 #+end_src
 
 ** Idle Highlight
