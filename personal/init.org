@@ -221,6 +221,10 @@ ibuffer setup with expert mode set true.
 http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 
 #+begin_src emacs-lisp
+(setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
+#+end_src
+
+#+begin_src emacs-lisp
 (setq ibuffer-saved-filter-groups
   '(("home"
      ("Clojure" (mode . clojure-mode))
@@ -263,7 +267,9 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
      ("Help" (or (name . "\*Help\*")
                  (name . "\*Apropos\*")
                  (name . "\*info\*"))))))
+#+end_src
 
+#+begin_src emacs-lisp
 (add-hook 'ibuffer-mode-hook
           '(lambda ()
              (ibuffer-switch-to-saved-filter-groups "home")))
