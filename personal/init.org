@@ -54,6 +54,7 @@
 (prelude-require-package 'ranger)
 (prelude-require-package 'ein)
 (prelude-require-package 'py-autopep8)
+(prelude-require-package 'color-theme-sanityinc-tomorrow)
 #+end_src
 
 * Appearance and Behaviour
@@ -68,9 +69,10 @@ Theme set in `personal/preload/preload.el`
 #+end_src
 ** Theme Looper
 #+begin_src emacs-lisp
-(theme-looper-set-favorite-themes
- '(afternoon nord kosmos solarized-dark
-   solarized-light leuven leuven-dark default))
+  (theme-looper-set-favorite-themes
+   '(sanityinc-tomorrow-eighties sanityinc-tomorrow-night
+     sanityinc-tomorrow-day afternoon nord kosmos
+     solarized-dark solarized-light leuven leuven-dark default))
 #+end_src
 ** Dictionary
 #+begin_src emacs-lisp

@@ -8,7 +8,7 @@
 ; (setq nord-region-highlight "snowstorm")
 ; (setq prelude-theme 'nord)
 
-(setq prelude-theme 'afternoon)
+(setq prelude-theme 'sanityinc-tomorrow-eighties)
 
 ; https://orgmode.org/manual/Conflicts.html
 (setq org-replace-disputed-keys t)
