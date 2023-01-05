@@ -78,3 +78,12 @@ alias guake_sdarcula="dconf write /apps/guake/style/font/palette \"'#252529292A2
 alias guake_nord="dconf write /apps/guake/style/font/palette \"'#3B3B42425252:#BFBF61616A6A:#A3A3BEBE8C8C:#EBEBCBCB8B8B:#8181A1A1C1C1:#B4B48E8EADAD:#8888C0C0D0D0:#E5E5E9E9F0F0:#4C4C56566A6A:#BFBF61616A6A:#A3A3BEBE8C8C:#EBEBCBCB8B8B:#8181A1A1C1C1:#B4B48E8EADAD:#8F8FBCBCBBBB:#ECECEFEFF4F4:#D8D8DEDEE9E9:#2E2E34344040'\""
 alias guake_tomorrow="dconf write /apps/guake/style/font/palette \"'#000000000000:#C8C828282828:#71718C8C0000:#EAEAB7B70000:#41417171AEAE:#89895959A8A8:#3E3E99999F9F:#FFFFFEFEFEFE:#000000000000:#C8C828282828:#70708B8B0000:#E9E9B6B60000:#41417070AEAE:#89895858A7A7:#3D3D99999F9F:#FFFFFEFEFEFE:#4D4D4D4D4C4C:#FFFFFFFFFFFF'\""
 
+
+################################################################################
+# BLUETOOTH
+################################################################################
+alias WH-1000XM3-connect="bluetoothctl connect 14:3F:A6:A8:74:B8"
+alias WH-1000XM3-disconnect="bluetoothctl disconnect 14:3F:A6:A8:74:B8"
+alias UE-BOOM2-connect="bluetoothctl connect C0:28:8D:8F:98:30"
+alias UE-BOOM2-disconnect="bluetoothctl disconnect C0:28:8D:8F:98:30"
+alias bluetooth-connected="bluetoothctl devices | cut -f2 -d' ' | while read uuid; bluetoothctl info $uuid; end|grep -e 'Device\|Connected\|Name'"
