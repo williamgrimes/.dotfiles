@@ -53,6 +53,7 @@
 (prelude-require-package 'geiser-mit)
 (prelude-require-package 'ranger)
 (prelude-require-package 'ein)
+(prelude-require-package 'py-autopep8)
 #+end_src
 
 * Appearance and Behaviour
@@ -332,3 +333,7 @@ https://superuser.com/a/566401
 (setq dired-listing-switches "-laXhG --group-directories-first")
 #+end_src
 
+* Python
+#+begin_src emacs-lisp
+(add-hook 'python-mode-hook 'py-autopep8-mode)
+#+end_src
