@@ -12,7 +12,9 @@ set softtabstop=4
 set expandtab    " disable swap file
 set noshiftround
 
-command W w !sudo tee % > /dev/nul  " :W sudo saves the file 
+" command W w !sudo tee % > /dev/null  " :W sudo saves the file
+" https://jovicailic.org/2015/05/saving-read-only-files-in-vim-sudo-trick/
+cmap w!! w !sudo tee % >/dev/null
 
 " https://www.tdaly.co.uk/projects/vim-statusline-generator/
 set laststatus=2
