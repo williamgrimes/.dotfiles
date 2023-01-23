@@ -1,6 +1,9 @@
 [core]
 	editor = vim
 
+[init]
+	defaultBranch = main
+
 [user]
 	name = williamgrimes
 	email = williamgrimes@gmx.com
@@ -36,3 +39,4 @@
 [merge]
   tool = vimdiff
   summary = true
+
