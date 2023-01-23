@@ -138,6 +138,6 @@ WHITE='\033[1;37m'
 NC='\033[0m' # No Color
 
 
-PS1="$YELLOw[$LIGHT_GRAY\$(date +%Y-%m-%d)$YELLOW][$LIGHT_GRAY\$(date +%H:%M:%S)$YELLOW][$GREEN\u$NC@$LIGHT_CYAN\h$YELLOW][$GREEN\w$BLUE$YELLOW]$NC# "
+PS1="$YELLOW[$LIGHT_GRAY\$(date +%Y-%m-%d)$YELLOW][$LIGHT_GRAY\$(date +%H:%M:%S)$YELLOW][$GREEN\u$NC@$LIGHT_RED\h$YELLOW][$GREEN\w$BLUE$YELLOW]$NC# "
 
 source ~/.aliasrc
