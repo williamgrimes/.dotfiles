@@ -2,8 +2,8 @@
 : '
 This script sets up dotfiles configuration, either locally or remotely.
 
-It first checks if the --remote flag is passed as a command-line argument.
-If it is, it configures remote dotfiles by calling the backup_and_link function with a set of remote dotfiles.
+It first checks if the --local, or --remote flag is passed as a command-line argument.
+It configures remote dotfiles by calling the backup_and_link function with a set of remote dotfiles.
 If the flag is not passed, it first creates the fish config directory if it does not exist, then creates symlinks for a set of local dotfiles and emacs configuration directory.
 
 The script uses a WAIT_TIME variable to sleep for 10 seconds before configuring the dotfiles.
@@ -49,21 +49,10 @@ backup_and_link() {
     ln -s ~/.dotfiles/$FILE ~/$FILE_DROP_REMOTE
 }
 
+if [ "$1" == "--local" ]; then
 
-if [ "$1" = "--remote" ]; then
-
-    echo "Remote dotfiles configuring; sleep for ${WAIT_TIME} seconds before continuing."
-
-    sleep $WAIT_TIME
-
-    backup_and_link ".bashrc.remote"
-    backup_and_link ".aliasrc.remote"
-    backup_and_link ".tmux.conf.remote"
-    backup_and_link ".vimrc"
-
-else
-
-    echo "Dotfiles configuring; sleep for ${WAIT_TIME} seconds before continuing."
+    echo "**LOCAL DOTFILES**"
+    echo "Sleep for ${WAIT_TIME} seconds before continuing."
 
     sleep $WAIT_TIME
 
@@ -88,5 +77,17 @@ else
     echo "Creating a symlink for ~/.emacs.d/"
     ln -s ~/.dotfiles/personal ~/.emacs.d/
 
-fi
+elif [ "$1" == "--remote" ]; then
+    echo "**REMOTE DOTFILES**"
+    echo "Sleep for ${WAIT_TIME} seconds before continuing."
 
+    sleep $WAIT_TIME
+
+    backup_and_link ".bashrc.remote"
+    backup_and_link ".aliasrc.remote"
+    backup_and_link ".tmux.conf.remote"
+    backup_and_link ".vimrc"
+
+else
+    echo "Invalid argument. Please specify either --local or --remote."
+fi
