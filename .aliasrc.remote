@@ -4,8 +4,8 @@
 # LIST
 ###############################
 alias ls='ls --color=auto'
-alias ll='ls -l'
-alias lll='ls -la'
+alias ll='ls -lh'
+alias lll='ls -lha'
 
 ###############################
 # REMOVE
@@ -13,9 +13,31 @@ alias lll='ls -la'
 alias rm='rm -I'
 
 ###############################
+# TERMINAL
+###############################
+alias c='clear'
+alias r='reset'
+alias q='exit'
+
+###############################
+# MOVE PROMPT BEFORE OVERWITE
+###############################
+alias mv='mv -i'
+
+###############################
+# PACKAGES
+###############################
+alias install='sudo apt install'
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade'
+
+###############################
 # CHANGE DIRECTORY
 ###############################
 alias cs='cd;ls'
+alias ..="cd .."
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 ###############################
 # COUNT DIR
