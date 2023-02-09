@@ -88,3 +88,4 @@ bind n next-window
 ############################
 set -g default-terminal "screen-256color"
 set -g status-style bg=white,fg=black,bold
+setw -g window-status-current-format "#[reverse] #I:#W"
