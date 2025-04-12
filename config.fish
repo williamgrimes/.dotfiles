@@ -25,9 +25,7 @@ function fish_prompt --description 'Write out the prompt'
 end
 
 ################################################################################
-# z jump around - https://github.com/sjl/z-fish
 ################################################################################
-. ~/.config/fish/z-fish/z.fish
 
 ################################################################################
 # aliases
@@ -56,9 +54,11 @@ alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 
 ################################################################################
 # SYSTEM SERVICES
+# zoxide - https://github.com/ajeetdsouza/zoxide
 ################################################################################
 alias services-running='systemctl list-units --type=service --state=running'
 alias services-failed='systemctl --failed'
+zoxide init fish | source
 
 function services-log --argument serv n
     journalctl --lines=$n -f -u $serv -o cat
