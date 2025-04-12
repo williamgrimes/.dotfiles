@@ -8,9 +8,12 @@
 ; (setq nord-region-highlight "snowstorm")
 ; (setq prelude-theme 'nord)
 
+(setq solarized-use-variable-pitch nil)
+
 (setq prelude-theme 'sanityinc-tomorrow-eighties)
 
 ; https://orgmode.org/manual/Conflicts.html
 (setq org-replace-disputed-keys t)
+
 
 ;;; preload.el ends here

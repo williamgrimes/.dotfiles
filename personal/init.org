@@ -2,7 +2,7 @@
 #+AUTHOR: William Grimes
 #+EMAIL: wiliamgrimes@gmx.com
 #+DATE: 2022-03-03
-#+STARTUP: content
+#+STARTUP: overview
 
 * Installation
 1. Install emacs27.1
@@ -31,7 +31,7 @@
   #+begin_comment
   M-x all-the-icons-install-fonts
   #+end_comment
-7) dashboard version to avoid Symbol void org-agenda-p
+7. dashboard version to avoid Symbol void org-agenda-p
   #+begin_comment
   dashboard-20211221.2005
   #+end_comment
@@ -80,7 +80,7 @@ Theme set in `personal/preload/preload.el`
 #+end_src
 ** Font
 #+begin_src emacs-lisp
-(set-face-attribute 'default nil :font "Ubuntu Mono" :height 150)
+(set-face-attribute 'default nil :font "Fira Code" :height 150)
 #+end_src
 ** Line truncation
 #+begin_src emacs-lisp
@@ -119,7 +119,6 @@ Allow long lines without highlighting in certain modes.
 (add-hook 'gfm-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
 (add-hook 'web-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
 (add-hook 'org-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
-(add-hook 'latex-mode-hook (lambda () (whitespace-toggle-options 'lines-tail)))
 #+end_src
 
 Allow single blank line at end of file
@@ -198,27 +197,30 @@ https://stackoverflow.com/a/5816139
 Configuration of dashboard.
 
 #+begin_src emacs-lisp
-(dashboard-setup-startup-hook)
-(setq dashboard-set-heading-icons t)
-(setq dashboard-set-file-icons t)
-(setq dashboard-items '((agenda . 10)
-                        (projects . 10)
-                        (recents  . 10)
-                        (bookmarks . 10)
-                        (registers . 3)))
-(setq dashboard-week-agenda t)
-(setq dashboard-agenda-release-buffers t)
+(customize-set-variable 'dashboard-set-heading-icons t)
+(customize-set-variable 'dashboard-set-file-icons t)
+(customize-set-variable 'dashboard-items '((agenda . 10)
+                                           (projects . 10)
+                                           (recents  . 10)
+                                           (bookmarks . 10)
+                                           (registers . 3)))
+(customize-set-variable 'dashboard-week-agenda t)
+(customize-set-variable 'dashboard-agenda-release-buffers t)
+(customize-set-variable 'dashboard-center-content t)
+(customize-set-variable 'dashboard-startup-banner "~/.dotfiles/personal/emacs3.png")
+(customize-set-variable 'dashboard-image-banner-max-height 200)
+(customize-set-variable 'dashboard-banner-logo-title
+                        (replace-regexp-in-string " (.*\n.*" "" (emacs-version)))
+(customize-set-variable 'dashboard-icon-type 'all-the-icons)  ; Use all-the-icons
 
+;; Initialize Dashboard
+(dashboard-setup-startup-hook)
+
+;; Custom function to switch to the Dashboard buffer
 (defun switch-to-dashboard ()
   "Switch to *dashboard* buffer if running."
   (interactive)
   (switch-to-buffer "*dashboard*"))
-
-(setq dashboard-center-content t)
-(setq dashboard-startup-banner "~/.dotfiles/personal/emacs2.png")
-(setq dashboard-image-banner-max-height 200)
-(setq dashboard-banner-logo-title
-  (replace-regexp-in-string " (.*\n.*" "" (emacs-version)))
 #+end_src
 
 * Ibuffer
@@ -240,6 +242,7 @@ http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
      ("Dired" (mode . dired-mode))
      ("Docs" (mode . doc-view-mode))
      ("TeX" (or (mode . TeX-output-mode)
+                (mode . plain-tex-mode)
                 (mode . latex-mode)))
      ("emacs-config" (or (filename . ".emacs.d")
                          (filename . "personal.el")
@@ -294,14 +297,11 @@ org-mode configuration.
 https://emacs.stackexchange.com/a/38443
 
 #+begin_src emacs-lisp
+(add-to-list 'org-modules 'org-habit t)
+
 ;; Todo keywords. Change these to your liking
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
-
-; clean latex logfiles
-(setq org-latex-logfiles-extensions
-      (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb"
-              "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl")))
+      '((sequence "MAYBE(m)"  "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 
 (setq org-agenda-files '("~/Org"))
 
@@ -327,7 +327,6 @@ https://emacs.stackexchange.com/a/38443
 (setq org-cycle-include-plain-lists 'integrate)
 
 #+end_src
-
 * Dired
 https://superuser.com/a/566401
 
@@ -341,3 +340,28 @@ https://superuser.com/a/566401
 #+begin_src emacs-lisp
 (add-hook 'python-mode-hook 'py-autopep8-mode)
 #+end_src
+* LaTeX
++ ~C-x x t~: toggle-truncate-lines wraps long lines
++ see edits made to  ~C-x x t~: toggle-truncate-lines wraps long lines
++ Edit hooks in =~/.emacs.d/modules/prelude-latex.el=
+#+begin_src emacs-lisp
+
+  ; clean latex logfiles
+  (setq org-latex-logfiles-extensions
+        (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb"
+                "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl")))
+
+
+  ; disable parsing of tex files generating auto folder
+  ;(setq TeX-auto-save nil)
+
+  ; (add-hook 'prelude-latex-mode-hook (lambda () (auto-fill-mode -1)) t)
+  ; (add-hook 'LaTeX-mode-hook (lambda () (whitespace-toggle-options '(lines-tail))))
+  ; (add-hook 'TeX-mode-hook (lambda () (whitespace-toggle-options '(lines-tail))))
+  ; (add-hook 'latex-mode-hook (lambda () (whitespace-toggle-options '(lines-tail))))
+  (add-hook 'tex-mode-hook (lambda () (whitespace-toggle-options '(lines-tail))))
+
+  (add-hook 'plain-tex-mode-hook (lambda () (toggle-truncate-lines)))
+  (add-hook 'plain-tex-mode-hook (lambda () (whitespace-toggle-options '(lines-tail))))
+#+end_src
+
