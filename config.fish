@@ -82,8 +82,56 @@ alias guake_tomorrow="dconf write /apps/guake/style/font/palette \"'#00000000000
 ################################################################################
 # BLUETOOTH
 ################################################################################
-alias WH-1000XM3-connect="bluetoothctl connect 14:3F:A6:A8:74:B8"
-alias WH-1000XM3-disconnect="bluetoothctl disconnect 14:3F:A6:A8:74:B8"
-alias UE-BOOM2-connect="bluetoothctl connect C0:28:8D:8F:98:30"
-alias UE-BOOM2-disconnect="bluetoothctl disconnect C0:28:8D:8F:98:30"
-alias bluetooth-connected="bluetoothctl devices | cut -f2 -d' ' | while read uuid; bluetoothctl info $uuid; end|grep -e 'Device\|Connected\|Name'"
+set -g DEVICES WH1000XM3 WF1000XM5 UEBOOM2
+set -g WH1000XM3 "14:3F:A6:A8:74:B8"
+set -g WF1000XM5 "AC:80:0A:A6:01:37"
+set -g UEBOOM2 "C0:28:8D:8F:98:30"
+
+function bc -a device -d "connect to bluetooth devices in DEVICES"
+  if contains -- $device $DEVICES
+    bluetoothctl connect $$device 
+  else
+    echo "Device '$device' not found in the list: $DEVICES"
+  end
+end
+complete -f -c bc -a "$DEVICES"
+
+function bd -a device -d "disconnect from bluetooth devices in DEVICES"
+  if contains -- $device $DEVICES
+    bluetoothctl disconnect $$device 
+  else
+    echo "Device '$device' not found in the list: $DEVICES"
+  end
+end
+complete -f -c bd -a "$DEVICES"
+
+function bd-all -d "disconnect from all bluetooth devices"
+  set -l connected_devices (bluetoothctl devices Connected | awk '{print $2}')
+
+  if test -z "$connected_devices"
+    echo "No Bluetooth devices are currently connected."
+    return 0
+  end
+
+  echo "Disconnecting from the following devices:"
+  for device in $connected_devices
+    echo "- $device"
+    bluetoothctl disconnect $device
+    if test $status -ne 0
+      echo "Error disconnecting from $device."
+    end
+  end
+
+  echo "Successfully attempted to disconnect from all connected Bluetooth devices."
+end
+
+function bl --wraps bluetoothctl -d 'List connected Bluetooth devices or show message'
+    set devices (bluetoothctl devices Connected)
+    if test -z "$devices"
+        echo "No connected Bluetooth devices."
+    else
+        echo "Connected bluetooth devices: "
+        echo -e "    $devices"
+    end
+end
+
