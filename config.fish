@@ -65,10 +65,33 @@ zoxide init fish | source
 
 function services-log --argument serv n
     journalctl --lines=$n -f -u $serv -o cat
+################################################################################
+# REBOOT
+################################################################################
+function reboot -d "Reboot with delay."
+    set countdown 5
+    echo "Starting reboot countdown (Ctrl+C to cancel) ..."
+    for i in (seq $countdown -1 1)
+        echo -n "... $i"
+        sleep 1
+    end
+    echo -e "\nRebooting now!"
+    /sbin/reboot
 end
 
 ################################################################################
+# POWEROFF
 ################################################################################
+function poweroff -d "Poweroff with delay"
+    set countdown 5
+    echo "Starting poweroff countdown (Ctrl+C to cancel) ..."
+    for i in (seq $countdown -1 1)
+        echo -n "... $i"
+        sleep 1
+    end
+    echo -e "\nPowering off now!"
+    /sbin/poweroff
+end
 
 ################################################################################
 # GUAKE THEMES 
