@@ -56,15 +56,10 @@ alias weather='curl wttr.in/uzes'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 
 ################################################################################
-# SYSTEM SERVICES
 # zoxide - https://github.com/ajeetdsouza/zoxide
 ################################################################################
-alias services-running='systemctl list-units --type=service --state=running'
-alias services-failed='systemctl --failed'
 zoxide init fish | source
 
-function services-log --argument serv n
-    journalctl --lines=$n -f -u $serv -o cat
 ################################################################################
 # REBOOT
 ################################################################################
@@ -197,3 +192,13 @@ function bl --wraps bluetoothctl -d 'List connected Bluetooth devices or show me
     end
 end
 
+
+################################################################################
+# SYSTEM SERVICES
+################################################################################
+alias services-running='systemctl list-units --type=service --state=running'
+alias services-failed='systemctl --failed'
+
+function services-log --argument serv n
+    journalctl --lines=$n -f -u $serv -o cat
+end
