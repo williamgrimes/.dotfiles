@@ -9,7 +9,7 @@ set fish_greeting ""
 # prompt https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_prompt.fish
 ################################################################################
 # also choose colors with fish_config
-function fish_prompt --description 'Write out the prompt'
+function fish_prompt -d 'Write out the prompt'
     set -l last_pipestatus $pipestatus
     set -l last_status $status
     set -l normal (set_color normal)
